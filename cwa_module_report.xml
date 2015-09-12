@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <report
+            string="Schapetiket"
+            id="action_report_schapetiket"
+            model="product.template"
+            report_type="qweb-pdf"
+            name="cwa_module.report_schapetiket"
+            file="cwa_module.report_schapetiket">
+        </report>
+        
+        <record id="paperformat_schapetiket" model="report.paperformat">
+            <field name="name">TEST NAME</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">35</field>
+            <field name="page_width">130</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">3</field>
+            <field name="dpi">80</field>
+        </record>
+        
+        <record id="cwa_module.action_report_schapetiket" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="cwa_module.paperformat_schapetiket" />
+        </record>
+    </data>
+</openerp>

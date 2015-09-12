@@ -1,51 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-    <data noupdate="False">
+    <data noupdate="0">
         
         <record id="cwa_statiegeld_008" model="product.template">
             <field name="name">Statiegeld 0.08</field>
             <field name="list_price">0.08</field>
+        </record>
+        <record id="cwa_statiegeld_inname_008" model="product.template">
+            <field name="name">Statiegeld Inname 0.08</field>
+            <field name="list_price">-0.08</field>
         </record>
         
         <record id="cwa_statiegeld_010" model="product.template">
             <field name="name">Statiegeld 0.10</field>
             <field name="list_price">0.10</field>
         </record>
+        <record id="cwa_statiegeld_inname_010" model="product.template">
+            <field name="name">Statiegeld Inname 0.10</field>
+            <field name="list_price">-0.10</field>
+        </record>
         
         <record id="cwa_statiegeld_015" model="product.template">
             <field name="name">Statiegeld 0.15</field>
             <field name="list_price">0.15</field>
+        </record>
+		<record id="cwa_statiegeld_inname_015" model="product.template">
+            <field name="name">Statiegeld Inname 0.15</field>
+            <field name="list_price">-0.15</field>
         </record>
         
 		<record id="cwa_statiegeld_025" model="product.template">
 			<field name="name">Statiegeld 0.25</field>
 			<field name="list_price">0.25</field>
 		</record>
+		<record id="cwa_statiegeld_inname_025" model="product.template">
+            <field name="name">Statiegeld Inname 0.25</field>
+            <field name="list_price">-0.25</field>
+        </record>
 		
 		<record id="cwa_statiegeld_040" model="product.template">
 			<field name="name">Statiegeld 0.40</field>
 			<field name="list_price">0.40</field>
 		</record>
+		<record id="cwa_statiegeld_inname_040" model="product.template">
+            <field name="name">Statiegeld Inname 0.40</field>
+            <field name="list_price">-0.40</field>
+        </record>
 		
 		<record id="cwa_statiegeld_045" model="product.template">
 			<field name="name">Statiegeld 0.45</field>
 			<field name="list_price">0.45</field>
 		</record>	
+		<record id="cwa_statiegeld_inname_045" model="product.template">
+            <field name="name">Statiegeld Inname 0.45</field>
+            <field name="list_price">-0.45</field>
+        </record>
 			
 		<record id="cwa_statiegeld_060" model="product.template">
 			<field name="name">Statiegeld 0.60</field>
 			<field name="list_price">0.60</field>
-		</record>	
+		</record>
+		<record id="cwa_statiegeld_inname_060" model="product.template">
+            <field name="name">Statiegeld Inname 0.60</field>
+            <field name="list_price">-0.60</field>
+        </record>
 			
 		<record id="cwa_statiegeld_175" model="product.template">
 			<field name="name">Statiegeld 1.75</field>
 			<field name="list_price">1.75</field>
 		</record>	
+		<record id="cwa_statiegeld_inname_175" model="product.template">
+            <field name="name">Statiegeld Inname 1.75</field>
+            <field name="list_price">-1.75</field>
+        </record>
 			
 		<record id="cwa_statiegeld_5" model="product.template">
-			<field name="name">Statiegeld 5</field>
+			<field name="name">Statiegeld 5.00</field>
 			<field name="list_price">5.00</field>
 		</record>
+		<record id="cwa_statiegeld_inname_5" model="product.template">
+            <field name="name">Statiegeld Inname 5.00</field>
+            <field name="list_price">-5.00</field>
+        </record>
 
     </data>
 </openerp>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="report_external_layout_shapetiket">
+	        <t t-name="report.external_layout_shapetiket">
+	            <t t-raw="0"/>
+	        </t>
+        </template>
+        
+    </data>
+</openerp>

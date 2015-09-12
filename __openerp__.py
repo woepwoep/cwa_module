@@ -4,13 +4,17 @@
     'author': 'Open2bizz',
     'application': True,
     'depends': ['sale', 'l10n_nl', 'point_of_sale'],
-    'data': ['view.xml', 
+    'data': ['view.xml',
+             'data/external_layout_shapetiket.xml',
+             'cwa_module_report.xml',
              'data/res_partner.xml', 
              'data/product.uom.csv', 
              'data/product.category.csv', 
              'data/ir.cron.csv', 
              'data/pos_categories.xml',
              'data/statiegeld_products.xml',
+             'data/ir.config_parameter.xml',
+             'data/schapetiket_report.xml',
+             
              ],
-    'init': ['data/ir.config_parameter.xml',]
 }
