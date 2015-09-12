@@ -41,35 +41,45 @@
 					</div>
 				</div>
                 <notebook>
-                	<page name="extended_information" string="Retailer View">
+                	<page name="extended_information" string="Artikelbeheer">
 						<group name="group_top">
 							<group name="group_left">
 								<field name="available_in_pos"/>
-								<field name="eancode"/>
-								<field name="cblcode"/>
+								<field name="ean13"/>
+								<field name="product_variant_count" invisible="1"/>
+								<button colspan="2" name="%(point_of_sale.action_edit_ean)d" type="action" string="Set a Custom EAN"
+                            		attrs="{'invisible': [('product_variant_count', '>', 1)]}" class="oe_link oe_edit_only"/>
+								
+								<field name="categ_id"/>
 								<field name="merk"/>
-								<field name="omschrijving"/>
-								<field name="kassaomschrijving"/>
-								<field name="inhoud" />
+								<field name="inhoud"/>
 								<field name="eenheid"/>
-								<field name="verpakkingce"/>
-								<field name="statiegeld"/>
-								<field name="weegschaalartikel"/>
-								<field name="wichtartikel"/>
-								<field name="pluartikel"/>
-								<field name="plucode"/>
-								<field name="btw"/>
-								<field name="lst_price"/>
-								<field name="kwaliteit"/>
-								<field name="herkomst"/>
-								<field name="status"/>
+								<field name="uom_id"/>
+						        <field name="use_deposit"/>
+						        <field name="select_deposit" attrs="{'invisible': [('use_deposit', '=', False)]}"/>
 							</group>
 							<group name="group_right">
-								<field name="ingredienten"/>
+								<field name="weegschaalartikel"/>
+								<field name="to_weight"/>
+								<field name="pluartikel"/>
+								<field name="plucode"/>
+								<field name="taxes_id" colspan="2" widget="many2many_tags"/>
+								<field name="lst_price"/>
+								<field name="inkoopprijs"/>
+								<field name="kwaliteit"/>
+								<field name="herkomst"/>
+							</group>
+						</group>
+						<separator string="Suppliers"/>
+						<field name="seller_ids"/>
+						<separator string="Ingrediënten"/>
+						<group name="ingredienten">
+							<field name="ingredienten"/>
+						</group>
+						<group name="group_top">
+							<group name="group_left">
 								<field name="proefdiervrij"/>
 								<field name="vegetarisch"/>
-								<field name="veganistisch"/>
-								<field name="rauwemelk"/>
 								<field name="d204"/>
 								<field name="d209"/>
 								<field name="d210"/>
@@ -85,6 +95,10 @@
 								<field name="d220"/>
 								<field name="d221"/>
 								<field name="d221b"/>
+							</group>
+							<group name="group_right">
+								<field name="veganistisch"/>
+								<field name="rauwemelk"/>
 								<field name="d222"/>
 								<field name="d223"/>
 								<field name="d236"/>
@@ -99,17 +113,18 @@
 								<field name="d240"/>
 								<field name="d241"/>
 								<field name="d242"/>
+							</group>
+						</group>
+						<separator string="Overige gegevens"/>
+						<group name="group_top">
+							<group name="group_left">
 								<field name="aantaldagenhoudbaar"/>
 								<field name="bewaartemperatuur"/>
 								<field name="gebruikstips"/>
-								<field name="lengte"/>
-								<field name="breedte"/>
-								<field name="hoogte"/>
-								<!-- field name="code"/ -->
-								<!-- field name="voedingswaarde"/ -->
-								<field name="ingangsdatum"/>
 							</group>
+						<group name="group_right">
 						</group>
+						</group>						
 					</page>
                 </notebook>
             </sheet>
@@ -142,7 +157,7 @@
 
 <!-- retailer view menu item -->
 <menuitem 
-    name="Retailer View" 
+    name="Artikelbeheer" 
     parent="base.menu_product" 
     id="retailer_view_menuitem" 
     sequence="15" 

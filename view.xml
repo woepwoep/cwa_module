@@ -183,6 +183,8 @@
 	        </xpath>
 	        <xpath expr="//tree[@string='Supplier Information']/field[@name='min_qty']" position='replace'>
 	            <field name="bestelnummer"/>
+	            <field name="inkoopprijs"/>
+	            <field name="consumentenprijs"/>
 	        </xpath>
 	        
 	    </field>
