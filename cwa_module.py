@@ -92,7 +92,7 @@ class cwa_import_module(models.Model):
                 try:
                     temp_list.append(temp_data[tag])
                 except KeyError:
-                    temp_list.append("KEYERROR")
+                    temp_list.append(0)
             
             #check if product already exists in the db
             shared_name_ids = irmodel_data_obj.search(cr, uid, [('name', '=', temp_data['id'])])
@@ -132,7 +132,7 @@ class cwa_import_module(models.Model):
                 try:
                     temp_list.append(temp_data[tag])
                 except KeyError:
-                    temp_list.append("KEYERROR")
+                    temp_list.append(0)
             supplier_info.append(temp_list)
         return supplier_info, supplier_info_tags
                 
