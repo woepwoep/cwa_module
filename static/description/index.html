@@ -1,0 +1,57 @@
+<section class="oe_container">
+	<div class="oe_row">
+		<h2 class="oe_slogan">Cwa product module</h2>
+	</div>
+</section>
+
+<section class="oe_container oe_dark">
+	<div class="oe_row">
+		<h2 class="oe_slogan">requirements</h2>
+		<h3 class="oe_slogan">For the import to work certain options must be checked.</h3>
+		<div class="oe_span12">
+		<br>
+			<ul>
+				<li>Settings>Config>Sales>Allow using different units of measure</li>
+				<li>Settings>Config>Accounting>Features>Full Accounting</li>
+				<li>Settings>Config>Accounting>Sale>Analytic accounting for sales</li>
+			</ul>
+			<b>Accounting may be called Invoicing</b>
+		</div>
+	</div>
+</section>
+
+<section class="oe_container oe_padded oe_dark">
+	<div class="oe_row oe_spaced">
+		<h3 class="oe_slogan">Setting parameters</h3>
+		<div class="oe_span12 oe_centeralign">
+				<img class="oe_picture" src="systemparameters.png"/>
+		</div>
+		<div class="oe_span12">
+			<p class="oe_mt32">
+				To setup your ftp server parameters you must change the Value shown in the image.
+				<ul>
+					<li> ftpaddress : The address of the ftp server</li>
+					<li> username : Ftp login info</li>
+					<li> password: Ftp login info</li>
+					<li> tododir: The path to the directory (on the ftp server) in which the files to be parsed reside.</li>
+					<li> donedir: The path to the directory (on the ftp server) in which the files should be placed after being parsed.</li>
+				</ul>
+				<br>
+				<ul>
+					<li><b>File paths are dependent on the ftp server.</b>
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;For example if the server uses ~/ for home dir, paths start with ~/. (e.g. ~/Biopunt)</li>
+					<li><b>All values are separated by a semicolon!</b></li>
+				</ul>
+			</p>
+		</div>
+	</div>
+</section>
+
+<section class="oe_container">
+	<div class="oe_row oe_space">
+	<h3 class="oe_slogan">Example value:</h3>
+	<div class="oe_span12">
+		<img class="oe_pictue" src="ftpdone.png"/>
+	</div>
+	</div>
+</section>

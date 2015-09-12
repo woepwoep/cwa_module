@@ -1,0 +1,2 @@
+id,name,function,args,numbercall,model,interval_type,interval_number,active
+cwa.import_scheduled_action,Cwa product import,run,(),1,cwa.import,Hours,24,false

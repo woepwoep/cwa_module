@@ -1,0 +1,11 @@
+uom_translations = {'Gram' : 'product.product_cwa_uom_g', 
+                     'stuk' : 'product.product_uom_unit', 
+                     'Ml' : 'product.product_cwa_uom_Ml', 
+                     'kg' : 'product.product_uom_kgm',
+                     'Liter' : 'product.product_uom_litre',
+                     'g': 'product.product_uom_gram',
+                     'cl': 'product.product_cwa_uom_cl',
+                     'builtje': 'product.product_cwa_uom_builtje',
+                     'tablet': 'product.product_cwa_uom_tablet',
+                     'm': 'product.product_uom_meter',
+                                 }
