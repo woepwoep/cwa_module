@@ -6,7 +6,7 @@ uom_translations = {
                     'FOLIE': 'product.product_cwa_folie', 
                     'PCS': 'product.product_cwa_pcs', 
                     'BLIK': 'product.product_cwa_blik', 
-                    '300 M': 'product.product_cwa_300ml', 
+                    '300 M': 'product.product_cwa_300m', 
                     'BACK': 'product.product_cwa_back', 
                     'BAG': 'product.product_cwa_bag', 
                     'AGF LOS': 'product.product_cwa_agf los', 
@@ -79,23 +79,3 @@ uom_translations = {
                     'PACK': 'product.product_cwa_pack', 
                     'TRAY': 'product.product_cwa_tray', 
                     'CAN': 'product.product_cwa_Can',}
-
-statiegeld_translations = { # 5, 0.25, 0.45, 0.08, 0.1, 0.6, 0.15, 0.4, 1.75
-                           'NONE' : 0,
-                           'None' : 0,
-                           'False' : 0, 
-                           '5' : "cwa_statiegeld_inname_5",
-                           '5.0' : "cwa_statiegeld_inname_5",
-                           '5.00' : "cwa_statiegeld_inname_5",
-                           '1.75' : "cwa_statiegeld_inname_175",
-                           '0.6' : "cwa_statiegeld_060",
-                           '0.60' : "cwa_statiegeld_060",
-                           '0.45' : "cwa_statiegeld_045",
-                           '0.4' : "cwa_statiegeld_040",
-                           '0.40' : "cwa_statiegeld_040",
-                           '0.25' : "cwa_statiegeld_025",
-                           '0.15' : "cwa_statiegeld_015",
-                           '0.1' : "cwa_statiegeld_010",
-                           '0.10' : "cwa_statiegeld_010",
-                           '0.08' : "cwa_statiegeld_008",
-                           }

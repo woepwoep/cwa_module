@@ -1,0 +1,660 @@
+id,name
+1000000,kruidenierswaren
+1010000,houdbare kruidenierswaren
+1010500,"koffie, cacao, thee"
+1010505,koffie
+1010506,koffiepads
+1010510,oploskoffie
+1010512,new instant oploskoffie
+1010515,koffiestroop
+1010520,cacao
+1010525,anijsblokjes
+1010530,thee
+1011000,"houdbare koffiemelk, houdbare koffieroom"
+1011005,"koffiemelk, koffieroom"
+1011010,"koffiecreamer, melkpoeder"
+1011500,suiker
+1011505,kristalsuiker
+1011510,overige suiker
+1011515,zoetmiddelen
+1011520,"suikerstroop, schenkstroop"
+1012000,rijst en deegwaren HB
+1012005,rijst HB
+1012010,deegwaren
+1012500,ontbijtproducten
+1012505,geplette graanproducten
+1012510,cornflakes
+1012515,muesli
+1013000,bakproducten en dessertingrediënten
+1013005,bloem en toebereide bloem
+1013010,"mixen voor taart, gebak, cake, pizzabodem"
+1013015,"mix voor pannenkoek, poffertjes, oliebollen"
+1013020,broodmixen
+1013025,bindmiddelen
+1013030,diverse bakbenodigdheden
+1013035,"taartbodems, pizzabodems"
+1013040,vlaaivullingen
+1013045,puddingpoeder
+1013050,"puddingsaus, bessensap"
+1013055,toppings
+1013060,ijspoeder
+1013065,"gedroogde vruchten, gedroogde zuidvruchten"
+1013500,"soepen, bouillons"
+1013506,"soepen droog, portie"
+1013511,"soepen droog, niet portie"
+1013513,"soepen nat, portie"
+1013515,"soepen nat, niet portie"
+1013520,bouillons droog
+1013522,bouillons nat
+1013525,vermicelli
+1013530,soepstengels en croutons
+1013535,smaakversterkers voor soep
+1014000,"sauzen, mixen"
+1014005,smaakmakers component droog koud
+1014010,smaakmakers component droog warm
+1014015,smaakmakers component nat koud
+1014020,smaakmakers component  nat warm
+1014025,smaakmakers compleet droog warm en koud
+1014030,smaakmakers compleet droog warm en koud overig
+1014035,slaversierders (droog en nat)
+1014040,olien
+1014045,azijn
+1014050,zuren
+1014500,"reformproducten, dieetproducten"
+1014505,reformproducten
+1014510,dieetproducten
+1015000,"babyvoeding, kindervoeding"
+1015005,"kinderkoek, kinderbiscuit"
+1015010,"formulevoeding, granenvoeding"
+1015015,"kindermaaltijden, happen nat"
+1015020,"kindersiropen, dranken"
+1015500,boterhambeleg
+1015505,jam
+1015510,boterhamsmeersels
+1015520,boterhamstrooisels
+1015525,cocosbrood
+1016000,"koek, koekjes, banketstuksartikelen"
+1016010,"koekjes, wafels en biscuits"
+1016015,"banket stuksartikelen, cake"
+1016020,seizoensartikelen koek(jes)
+1016025,tussendoor koek
+1016100,chocolade en chocoladeproducten
+1016105,"chocoladeproducten, bonbons, bite sizes"
+1016110,chocoladerepen en tabletten
+1016115,candybars
+1016120,seizoensartikelen chocolade
+1016200,snoep en zoetwaren
+1016205,"snoep, zacht suikerwerk"
+1016210,kauwgom
+1016215,"drop, hoestartikelen"
+1016220,seizoenartikelen snoep
+1016500,"zoutjes, onderleggers, notenbarproducten"
+1016505,chips
+1016510,zoute biscuits en koekjes
+1016515,cocktailsnacks
+1016520,"verpakte pinda's, verpakte noten"
+1016530,"melba toast, toastjes, crackers, cups"
+1017000,bieren
+1017005,"alcoholvrij, alcoholarm bier"
+1017010,pilseners
+1017015,speciaalbieren
+1017500,wijnen en aperitieven
+1017505,rode wijn
+1017510,witte wijn
+1017515,rosé wijnen
+1017517,mousserende wijn
+1017520,sherry's
+1017525,overige aperitieven
+1017530,overige alcoholhoudende dranken
+1017531,mixdranken
+1018000,niet alcoholhoudende dranken
+1018002,cola
+1018003,sinas
+1018004,"lemon, lime"
+1018005,overige frisdranken
+1018010,mineraal- en bronwaters
+1018015,(vruchten)limonadesiropen en -poeders
+1018020,"vruchtensappen, vruchtendranken, groentesappen"
+1018025,"C-siropen, geconcentreerd vruchtensap"
+1018030,sport- en energiedranken
+1018035,weidranken met vruchten
+1020000,kruidenierswaren  (semi-) vers
+1022000,rijst en deegwaren semi sers
+1022005,rijst semi vers
+1022010,deegwaren semi vers
+1026500,"zoutjes, onderleggers, notenbarproducten SV"
+1026525,notenbarproducten SV
+1028000,niet-alcoholhoudende dranken SV
+1028020,vruchtensappen en -dranken / groentesappen SV
+1100000,zuivel en eieren
+1110000,houdbare zuivel en eieren
+1110500,houdbare melk
+1110505,houdbare melk
+1111000,overige houdbare zuivel
+1111005,houdbare desserts
+1111010,houdbare roomproducten
+1111015,houdbare zuiveldrinks
+1111020,watergruwel
+1111025,soya drinks/desserts
+1111030,chocoladedranken
+1120000,(semi-) vers zuivel en eieren
+1120500,eieren
+1120505,eieren
+1121000,dagverse melk
+1121005,dagverse melk 
+1121006,dagverse karnemelk
+1121010,dagverse (karne-)melkdranken
+1121500,overige dagverse zuivel bulk
+1121505,yoghurt naturel (homogeen)
+1121510,homogene vla
+1121515,kwark naturel
+1121520,pappen
+1122000,dagverse zuivelspecialiteiten
+1122005,yoghurt met toevoegingen
+1122010,vla met toevoegingen
+1122015,kwark met toevoegingen
+1122020,pudding
+1122025,luxe toetjes / specialiteiten
+1122030,"slagroom, zure room, creme fraiche"
+1122035,zuiveldranken
+1122500,"geelvetten, witvetten"
+1122505,boter
+1122510,margarine
+1122515,botermelange
+1122520,halvarine
+1122525,"bakproducten, braadproducten"
+1122535,frituurvet
+1130000,diepvries zuivel en eieren
+1130500,diepvries desserts en sappen
+1130505,"diepvries pudding, desserts"
+1130510,diepvries geconcentreerde vruchten/groentesappen
+1131000,ijs
+1131005,schepijs in bakken
+1131010,"handijs, portieijs, ijssnacks"
+1131020,ijstaarten e.d.
+1200000,kaas
+1220000,kaas (semi-) vers
+1220500,Nederlandse kaas uitsnij
+1220505,Nederlandse kaas uitsnij
+1221000,Nederlandse kaas verpakt
+1221005,Nederlandse kaas verpakt ongesneden
+1221020,"Nederlandse kaas, verpakt, gesneden en blokjes"
+1221500,buitenlandse specialiteiten uitsnij
+1221505,buitenlandse specialiteiten uitsnij
+1222000,buitenlandse specialiteiten verpakt
+1222005,"buitenlandse specialiteiten, verpakt"
+1222500,overige soorten verpakte kaas
+1222505,geraspte kaas verpakt
+1222515,smeerkaas / kaasspread/ dippers
+1300000,"aardappelen, groenten en fruit"
+1310000,"aardappelen, groenten en fruit houdbaar"
+1310500,aardappelproducten
+1310505,aardappelpuree
+1311000,groenteconserven
+1311005,glasconserven
+1311010,blikconserven
+1311015,appelmoes
+1311020,gedroogde peulvruchten / groenten
+1311030,tomaten
+1311031,tomatenpuree
+1311035,olijven houdbaar
+1311500,vruchtenconserven
+1311505,vruchtenconserven in glas
+1311510,vruchtenconserven in blik
+1320000,"aardappelen, groenten en fruit (semi) vers"
+1320500,aardappelen
+1320505,onbewerkte aardappelen
+1320510,geschilde aardappel
+1321000,aardappelproducten
+1321005,verse frites
+1321010,k&k aardappelproducten naturel
+1321020,k&k aardappelproducten met toevoegingen
+1321500,verse groenten
+1321505,groenten onbewerkt
+1321510,"komkommer, uien, knoflook, champignons, paprika's"
+1321515,verse kruiden en kruiden op nat
+1321520,bewerkte groenten
+1321525,gemengde verse groenten
+1321530,"tahoe, tempeh, tofu"
+1321535,"olijven, pommodori, pepperoni"
+1322000,vers fruit
+1322005,hard fruit
+1322010,zacht fruit
+1322015,citrusvruchten
+1322020,exoten
+1322025,bessen
+1322030,fruitmanden
+1322035,verse noten
+1322040,k&k vers fruit
+1330000,"diepvries aardappels, groenten en fruit"
+1330500,diepvries aardappelproducten
+1330505,frites
+1330510,overige enkelvoudige aardappelproducten
+1331000,groenteproducten
+1331005,enkelvoudige en samengestelde groenten
+1331010,soepgroenten
+1331015,kruiden
+1331020,fruit en vruchtenmelange
+1400000,"vlees, wild en gevogelte"
+1410000,"houdbaar vlees, wild en gevogelte"
+1410500,vleesconserven
+1410505,vleesconserven glas
+1410510,vleesconserven blik
+1410515,vlees in folie/plastic pakken
+1410520,rookworst verpakt
+1410525,vacuum kip
+1410530,vegetarische vleesvervangers
+1420000,vers vlees
+1420500,vers vlees
+1420505,varkensvlees
+1420506,varkensvlees panklaar
+1420510,rundvlees
+1420511,rundvlees panklaar
+1420515,paardenvlees
+1420520,kalfsvlees
+1420525,"lamsvlees, schapenvlees"
+1420530,gedraaide vleesproducten
+1420535,bgf-pakketten
+1420540,overig panklaar vlees
+1420545,verse  rookworst
+1420550,vegetarische vleesvervangers
+1420551,vegetarische vleesvervangers panklaar
+1421000,vers gevogelte
+1421005,kip
+1421006,kip panklaar
+1421010,kalkoen
+1421011,kalkoen panklaar
+1421015,overig gevogelte
+1421020,overig panklaar gevogelte
+1421500,vers wild
+1421505,"haas,konijn"
+1421510,overig wild
+1430000,"diepvries vlees, wild en gevogelte"
+1430500,"diepvries vlees, wild en gevogelte"
+1430505,kip en ander gevogelte
+1430510,wild
+1430515,vlees / toebereid vlees
+1430520,vegetarische vleesvervangers
+1431000,vleessnacks
+1431005,sateh
+1431015,"hamburgers, frikadellen"
+1431020,"kroketten, bitterballen"
+1431025,gevogelte snacks
+1431030,diepvries overige snacks / specialiteiten
+1500000,vleeswaren en salades
+1510000,vleeswarenconserven
+1510500,vleeswarenconserven
+1510505,vleeswarenconserven
+1520000,(semi-) verse vleeswaren en salades
+1520500,snijverse vleeswaren
+1520505,leverproducten snijvers
+1520510,pate's snijvers
+1520515,ham snijvers
+1520520,rookvlees en rosbief snijvers
+1520525,"ribsoort snijvers, speksoort snijvers"
+1520530,"kipproducten snijvers, kalkoenproducten snijvers"
+1520535,droge en gekookte worst snijvers
+1520540,vegetarische vleeswaren snijvers
+1521000,verpakte gesneden vleeswaren
+1521005,verpakte leverproducten
+1521015,verpakte ham
+1521020,verpakte rookvlees/rosbief
+1521025,verpakte ribsoorten en speksoorten
+1521030,verpakte kipproducten en kalkoenproducten
+1521035,verpakte droge en gekookte worst
+1521040,verpakte vegetarische vleeswaren 
+1521500,stuks artikelen
+1521505,leverworst
+1521510,theeworst
+1521515,droge en gekookte worst
+1521520,zure zult
+1521525,borrelhapjes
+1521530,filet americain
+1521535,pate
+1522000,salades en sauzen
+1522005,schepsalades los
+1522010,verpakte salades
+1522015,sauzen los
+1522020,sauzen verpakt
+1600000,"vis, schaal- en schelpdieren"
+1610000,"houdbare vis, schaal- en schelpdieren"
+1610500,houdbare visproducten
+1610505,"vis, schaal- en schelpdieren in blik"
+1610510,visproducten in tube
+1610515,"vis, schaal- en schelpdieren in glas"
+1620000,(semi)verse vis
+1620500,verse vis
+1620505,"verse vis, onbewerkt, gefileerd, gerookt, gedroogd"
+1620510,gebakken / gefrituurde vis
+1620515,maatjesharing
+1621000,schaal- en schelpdieren
+1621005,schaal- en schelpdieren
+1621500,verpakte vis
+1621505,verpakte vis niet in glas
+1621510,overige vis in glas
+1621515,haring in glas of emmer
+1622000,verpakte schaal- en schelpdieren
+1622005,verpakte schaal- en schelpdieren
+1630000,"diepvries vis, schaal- en schelpdieren"
+1630500,diepvries vis
+1630505,vis naturel / toebereid
+1630510,gecoate vis
+1630515,diepvries maatjesharng
+1631000,diepvries schaal- en schelpdieren
+1631005,schaal en schelpdieren
+1700000,brood en gebak
+1710000,houdbaar brood en gebak
+1710500,houdbaar brood
+1710505,roggebrood
+1710510,buitenlands/houdbaar  brood
+1710515,halffabrikaten
+1711000,broodvervangers
+1711005,beschuit
+1711010,gepofte rijstwafels
+1711015,knäckebröd
+1711020,geroosterd brood / crackers groot
+1711025,ontbijtkoek
+1720000,vers brood en gebak
+1720500,groot brood
+1720505,wit brood
+1720510,bruin brood
+1720515,volkorenbrood
+1720520,meergranenbrood
+1720530,gevuld brood
+1721000,klein brood
+1721005,klein witbrood
+1721010,klein bruinbrood
+1721015,klein brood volkoren en meergranen
+1721020,klein brood gevuld
+1721300,halffabrikaat
+1721315,halffabrikaat vers gekoeld 
+1721500,snacks
+1721505,hartige snacks
+1721510,zoete snacks
+1721515,broodsnacks groot
+1722000,stokbrood
+1722005,stokbrood
+1722010,gekoelde halffabrikaten groot
+1722500,seizoensbrood
+1722505,seizoensbrood
+1723000,groot gebak
+1723005,taarten en schnittes
+1723010,vlaaien
+1723500,klein gebak
+1723505,klein gebak
+1724000,banket
+1724005,banket
+1730000,diepvries brood en gebak
+1730500,diepvries bakkerijproducten
+1730505,bladerdeeg
+1731000,gebak
+1731005,groot gebak
+1731010,klein gebak
+1800000,maaltijden
+1810000,houdbare maaltijden
+1810500,houdbare maaltijden
+1810510,buitenlandse maaltijden
+1810515,binnenlandse maaltijden
+1810520,maaltijdcomponenten
+1820000,verse maaltijden
+1820500,verse lunchproducten
+1820505,belegd broodje/sandwich
+1821000,vers dinerproducten
+1821005,binnenlandse maaltijden
+1821010,buitenlandse maaltijden
+1821015,(maaltijd)soepen
+1821020,pizza
+1821025,maaltijdcomponenten / traiteurachtige producten
+1830000,diepvries maaltijden
+1830500,diepvries maaltijden
+1830505,diepvries (maaltijd)soepen
+1830510,k&k diepvriesmenu's
+1830515,pizza's
+1830520,maaltijdcomponenten
+1830525,traiteurachtige producten
+1900000,dierenvoeding
+1910000,houdbare dierenvoeding
+1910500,hondenvoer
+1910505,droog hondenvoer
+1910510,nat hondenvoer
+1910515,snacks voor honden
+1911000,kattenvoer
+1911005,droog kattenvoer
+1911010,nat kattenvoer
+1911015,snacks voor katten
+1911500,overig voer
+1911505,vogelvoer
+1911510,knaagdiervoer
+1911515,visvoer
+1920000,vers dierenvoer
+1920500,vers dierenvoer
+1920505,orgaanvlees vers
+1930000,diepvries dierenvoer
+1930500,diepvries dierenvoer
+1930505,"orgaanvlees, diepvries"
+2000000,rookwaren
+2010000,houdbare rookwaren
+2010500,tabaksproducten
+2010505,sigaretten
+2010510,sigaren
+2010515,shag
+2010520,pijptabak
+2011000,hulpmiddelen
+2011005,vloei
+2011010,hulzen/filters
+2011015,aanstekers
+2100000,drogmetica
+2110000,houdbare drogmetica
+2110500,"lichaamsverzorging, medische verzorging"
+2110505,"toiletzeep, badzeep, doucheschuim"
+2110510,verzorgende cosmetica
+2110511,deodorants
+2110512,dames en herengeuren
+2110513,ontharingsproducten
+2110515,decoratieve cosmetica en toebehoren
+2110520,shampoo
+2110525,overige haarverzorgings producten
+2110530,mondverzorging
+2110535,babyverzorging
+2110540,scheerproducten en toebehoren
+2110545,"wondartikelen, inhaler"
+2110550,condooms
+2111000,periodeverzorging en luiers
+2111005,"damesverband, inlegkruisjes, tampons"
+2111010,weggooiluiers
+2111015,incontinentieproducten
+2111500,sanitaire papierwaren
+2111505,(vochtig) wc-papier
+2111510,keukenrollen
+2112000,zakdoekjes
+2112005,"papieren zakdoekjes, tissues"
+2200000,schoonmaak en onderhoudsartikelen
+2210000,houdbare schoonmaak en onderhoudsartikelen
+2210500,was- en reinigingsmiddelen
+2210505,witwasmiddelen
+2210510,"bont-, wol-, fijn-, en handwasmiddelen"
+2210515,voorwasmiddelen
+2210520,wasverzachters
+2210525,overig wasmiddelen
+2210530,afwas-/vaatwasmiddelen
+2210535,"generieke reinigers, schuurmiddel"
+2210540,specialistische reinigers
+2210545,toiletreinigers
+2210550,luchtverfrissers
+2211000,poetsmiddelen
+2211005,meubelreiniging/onderhoudsmiddelen
+2211010,"zilverpoets, koperpoets"
+2211015,vloerreiniging/onderhoud
+2211020,schoenpoetsmiddelen
+2300000,kantoorbenodigdheden en wenskaarten
+2310500,kantoorbenodigdheden
+2310505,schrijfwaren
+2310510,bureau accessoires
+2310520,"schrijfblokken, multo-papier, schriften"
+2310525,enveloppen
+2310530,"kadopapier, feestartikelen, decoraties"
+2311000,wenskaarten
+2311005,wenskaarten
+2400000,lectuur
+2410000,houdbare lectuur
+2410500,dagbladen
+2410505,dagbladen
+2411000,"tijdschriften, opiniebladen"
+2411005,vrouwenbladen
+2411010,mannenbladen
+2411015,familie- roddelbladen
+2411020,rtv-bladen
+2411025,speciale interestbladen
+2411030,puzzelbladen
+2411035,opinieweekbladen
+2411040,eenmalige uitgaven
+2411500,"boeken, pockets"
+2411505,"boeken, pockets"
+2500000,huishoudelijke artikelen
+2510000,houdbare huishoudelijke artikelen
+2511000,huishoudelijke waren en onderhoudsmateriaal
+2511005,"vuilniszakken, pedaalemmerzakken"
+2511010,huishoudfolie
+2511015,"boterhamzakjes, diepvrieszakjes"
+2511020,"wasemkapfilters, stofzuigerzakken"
+2511025,koffiefilters
+2511030,wegwerpartikelen
+2511035,onderhoudsmaterialen / borstelwerk
+2511040,insectenverdelgers
+2512000,babyartikelen
+2512005,"zuigflessen, spenen"
+2512500,panty's/nylons
+2512505,panty's/nylons
+2513000,sfeer en verlichting
+2513005,gloeilampen
+2513010,batterijen
+2513015,"kaarsen, waxinelichtjes"
+2513020,"aanmaakblokjes, houtskool"
+2513025,lucifers
+2600000,bloemen en planten
+2610000,houdbaar bloemen en planten
+2610500,bloemen- en plantverzorging
+2610505,bloemen- en plantvoeding en verzorging
+2610520,potgrond
+2620000,bloemen en planten vers
+2620500,verse bloemen en planten
+2620505,snijbloemen
+2620510,(kamer)planten
+2620515,seizoensartikelen
+2700000,dierenbenodigdheden
+2710000,houdbare dierenbenodigdheden
+2710500,dierenbenodigdheden
+2710505,dierenbenodigdheden
+2710510,kattenbakvulling
+2710515,schelpenzand
+2710520,"hooi, stro"
+2800000,overig assortiment
+2810000,houdbaar overig assortiment
+2810500,winkelartikelen
+2810505,boodschappentassen
+2810510,folders en brochures
+2810515,waardebonnen
+2810520,emballage
+2811000,textiel
+2811005,"kousen, sokken"
+2811010,huishoudtextiel
+2811015,ondergoed
+2811020,overige textiel
+2811025,schoeisel
+2811500,"foto, audio, video"
+2811505,foto materialen
+2811510,"beelddragers, geluiddragers"
+2811515,fotoalbums
+2812500,diensten en services
+2812505,kledingservices
+2812510,schoenreparatie
+2812515,boodschappenbezorgservice
+2812520,PTT-post service
+2812525,foto-ontwikkel en afdruk services
+2812530,kopieer- en faxservice
+2812535,overige services
+2813000,overig huishoudelijk assortiment
+2813005,klein huishoudelijk plastic
+2813010,groothuishoudelijk plastic
+2813015,"potten, pannen, bakvormen"
+2813020,keukenhulpjes
+2813025,"glas, porcelein, aardewerk"
+2815000,voedingsgebonden OTC
+2815005,afslankproducten
+2815010,"vitaminen, mineralen, voedingssupplementen"
+2815500,"artikelen tegen aandoeningen,  preparaten"
+2815505,pijnstillende middelen
+2815510,verkoudheidspreparaten
+2815515,"hoestpreparaten, keelpreparaten"
+2815520,grieppreparaten
+2815525,spijsverteringspreparaten
+2815530,oogverzorging
+2815531,oorverzorging
+2815535,"blaaspreparaten, geslachtpreparaten"
+2815540,bloedsomloop preparaten
+2815550,huidverzorging
+2815555,"spierverzorging, gewrichtsverzorging"
+2816000,gedragsbeinvloedende artikelen
+2816005,"kalmerend, rustgevend"
+2816010,middelen tegen reisziekte
+2816015,overige habituele aandoeningen
+2816500,"testen, diagnostische producten, meetapparatuur"
+2816505,zwangerschapstesten
+2816507,ovulatietest
+2816508,thermometers
+2816510,overige diagnostische testen
+2819500,overig assortiment
+2819505,bijoux
+2819510,"fiets, auto"
+2819515,gereedschappen
+2819525,haardblokken
+2819535,doe het zelf
+2819540,verf en accessoires
+2819545,"schoenonderhoudsartikelen, veters"
+2819550,speelgoed
+2819555,tuinartikelen
+2819560,kookboeken
+2819565,decoratie non food
+2819570,"tassen, koffers"
+2819575,apparaten elektrisch / elektronisch
+2819580,camping
+2819585,naaigaren en naaigerei
+2819590,optiek
+2819599,overige assortiment
+2900000,sterk alcoholische dranken
+2910000,houdbare sterk alcoholische dranken
+2910500,sterk alcoholische dranken
+2910505,jenever
+2910510,vieux
+2910515,brandewijn
+2910520,Berenburg
+2910525,likeuren
+2910530,whisky
+2910535,cognac
+2910540,rum
+2910545,gin
+2910550,wodka
+2910555,creamdranken
+2910560,anijsdranken
+2910565,overige specialiteiten
+4000000,winkelmateriaal
+4000005,schuimschalen
+4000010,papieren zakken
+4000015,plastic zakken
+4000020,folie zakken
+4000025,gecombineerde zakken
+4100000,stylingmateriaal
+4100030,kaarten
+4100035,kleding
+4100040,vlaggenstokken
+4100045,overig styling materiaal
+4200000,"kassabenodigdheden, prijsbenodigdheden"
+4200005,etiketten
+4200010,bonrollen
+4200015,toner
+4200020,inktlinten
+4200025,diverse
+4300000,schoon- en hygieneartikelen
+4300005,rolhouder
+4300010,handdoekendispenser
+4300015,diverse
