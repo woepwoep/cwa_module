@@ -1,34 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?> 
 <openerp>
     <data>
         <template id="report_schapetiket">
             <t t-call="report.html_container">
-                <t t-foreach="docs" t-as="o">
-                    <t t-call="cwa_module.report_external_layout_shapetiket">
-                        <div class="page">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                	<strong><h2 t-field="o.name"/></strong>    
-                                </div>
-                            </div>
-                            <div class="row">
-                            	<div class="col-xs-6">
-                            	    <div t-if="o.ean13">
-	                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('EAN13', o.ean13, 600, 100)" style="width:300px;height:50px"/>
-	                            	</div>
-                            	</div>
-                                <div class="col-xs-1"></div>
-                                <div class="col-xs-1">
-                            		<strong><h1>€</h1></strong>
-                            	</div>
-                            	<div class="col-xs-4">
-                            		<strong><h1 t-field="o.consumentenprijs"/></strong>
-                            	</div>
-                            </div>
-                        </div>
-                    </t>
-                </t>
-            </t>
-        </template>
-    </data>
-</openerp>
+				<t t-call="cwa_module.report_external_layout_shapetiket">
+					<div class="page">
+                            <t t-foreach="range(0, len(docs), 3)" t-as="i">
+                                	<div class="row">
+                                	    <t t-foreach="range(0, 3, 1)" t-as="j">
+		                                	<div class="col-xs-4" style="white-space:nowrap;overflow:hidden;text-overflow:hidden;">
+		                                		<strong><p t-field="docs[i+j].name"/></strong>    
+		                                	</div>
+		                                </t>
+		                            </div>
+		                            <div class="row">
+		                                <t t-foreach="range(0, 3, 1)" t-as="j">
+			                                <div class="col-xs-1">
+			                                    <p t-field="docs[i+j].eenheid" style="white-space:nowrap;overflow:hidden;text-overflow:hidden;"/>
+			                                </div>
+			                                <div class="col-xs-1">
+			                                    <p>€</p>
+			                                </div>
+			                                <div class="col-xs-2">
+			                                    <p t-field="docs[i+j].consumentenprijs"/>
+			                                </div>
+		                                </t>
+		                            </div>
+		                            <div class="row">
+		                                <t t-foreach="range(0, 3, 1)" t-as="j">
+			                            	<div class="col-xs-4">
+			                            	    <div t-if="docs[i+j].ean13">
+				                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('EAN13', docs[i+j].ean13, 600, 100)" style="width:100%;height:50px"/>
+				                            	</div>
+			                            	</div>
+		                            	</t>
+		                            </div>	
+		                            <div class="row">
+		                                <div class="col-xs-12">
+		                                    <br></br>
+		                                    <br></br>
+		                                </div>
+		                            </div>
+                                </t>
+	                   </div>
+                	</t>
+            	</t>
+        	</template>
+    	</data>
+	</openerp>
+
+	

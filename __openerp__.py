@@ -3,7 +3,7 @@
     'description': 'cwa module voor producten.',
     'author': 'Open2bizz',
     'application': True,
-    'depends': ['sale', 'l10n_nl', 'point_of_sale'],
+    'depends': ['sale', 'l10n_nl', 'point_of_sale', 'pos_deposit'],
     'data': ['view.xml',
              'data/external_layout_shapetiket.xml',
              'cwa_module_report.xml',

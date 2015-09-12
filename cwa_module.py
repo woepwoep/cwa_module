@@ -44,6 +44,7 @@ class cwa_import_module(models.Model):
     
     def parse_xml_products(self, cr, uid, f):
         product_template_obj = self.pool.get('product.template')
+        irmodel_data_obj = self.pool.get('ir.model.data')
         products = []
         product_tags = ['id', 'name', 'list_price', 'ean13', 'categ_id/id', 
                         'taxes_id', 'supplier_taxes_id', 'available_in_pos', 
@@ -60,7 +61,7 @@ class cwa_import_module(models.Model):
                     temp_data[item.tag] = "NONE"
                 else:
                     temp_data[item.tag] = item.text.encode('utf-8').upper()
-                    
+                
             temp_data['id'] = self.set_external_id(temp_data)
             temp_data['ean13'] = 0 if temp_data['eancode'] == "NONE" else self.set_ean_code(temp_data['eancode'])
             temp_data['name'] = temp_data['omschrijving']
@@ -92,16 +93,16 @@ class cwa_import_module(models.Model):
                     temp_list.append(temp_data[tag])
                 except KeyError:
                     temp_list.append("NONE")
-
-            shared_name_ids = product_template_obj.search(cr, uid, [('ean13', '=', temp_data['ean13'])])
+            
+            #check if product already exists in the db
+            shared_name_ids = irmodel_data_obj.search(cr, uid, [('name', '=', temp_data['id'])])
             product_exists = False
             for product in products:
                 if product[3] == temp_data['eancode']:
                     product_exists = True
                     break
                 
-            if len(shared_name_ids) > 0 or product_exists:
-                _logger.debug("Found %s products." % len(shared_name_ids))
+            if product_exists or len(shared_name_ids) > 0:
                 continue
             products.append(temp_list)
         return products, product_tags

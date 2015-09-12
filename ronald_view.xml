@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+	<!-- form view -->
+	<record id="view_form_product_extended" model="ir.ui.view">
+		<field name="name">Extended form</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_only_form_view"/>
+		
+		<field name="arch" type="xml">
+			<xpath expr="//form/sheet/notebook/page[@string='Information']" position="before">
+				<page name="extended_information" string="Retailer View">
+					<group name="group_top">
+						<group name="group_left">
+							<field name="available_in_pos"/>
+							<field name="eancode"/>
+							<field name="cblcode"/>
+							<field name="merk"/>
+							<field name="omschrijving"/>
+							<field name="kassaomschrijving"/>
+							<field name="inhoud" />
+							<field name="eenheid"/>
+							<field name="verpakkingce"/>
+							<field name="statiegeld"/>
+							<field name="weegschaalartikel"/>
+							<field name="wichtartikel"/>
+							<field name="pluartikel"/>
+							<field name="plucode"/>
+							<field name="btw"/>
+							<field name="lst_price"/>
+							<field name="kwaliteit"/>
+							<field name="herkomst"/>
+							<field name="status"/>
+						</group>
+						<group name="group_right">
+							<field name="ingredienten"/>
+							<field name="proefdiervrij"/>
+							<field name="vegetarisch"/>
+							<field name="veganistisch"/>
+							<field name="rauwemelk"/>
+							<field name="d204"/>
+							<field name="d209"/>
+							<field name="d210"/>
+							<field name="d212"/>
+							<field name="d213"/>
+							<field name="d214"/>
+							<field name="d234"/>
+							<field name="d215"/>
+							<field name="d239"/>
+							<field name="d216"/>
+							<field name="d217"/>
+							<field name="d217b"/>
+							<field name="d220"/>
+							<field name="d221"/>
+							<field name="d221b"/>
+							<field name="d222"/>
+							<field name="d223"/>
+							<field name="d236"/>
+							<field name="d238"/>
+							<field name="d238b"/>
+							<field name="d225"/>
+							<field name="d226"/>
+							<field name="d228"/>
+							<field name="d230"/>
+							<field name="d232"/>
+							<field name="d237"/>
+							<field name="d240"/>
+							<field name="d241"/>
+							<field name="d242"/>
+							<field name="aantaldagenhoudbaar"/>
+							<field name="bewaartemperatuur"/>
+							<field name="gebruikstips"/>
+							<field name="lengte"/>
+							<field name="breedte"/>
+							<field name="hoogte"/>
+							<!-- field name="code"/ -->
+							<!-- field name="voedingswaarde"/ -->
+							<field name="ingangsdatum"/>
+						</group>
+					</group>
+				</page>
+			</xpath>
+
+			<xpath expr="//form/sheet/notebook/page[@name='variants']" position="after">
+				<page name="extended_information" string="Extra info">
+					<group name="group_top">
+						<group name="group_left">
+							<field name="ingangsdatum"/>
+							<field name="proefdiervrij"/>
+							<field name="vegetarisch"/>
+							<field name="veganistisch"/>
+							<field name="rauwemelk"/>
+						</group>
+						<group name="group_right">
+							<field name="ingredienten"/>
+						</group>
+					</group>
+				</page>
+				<page name="d_values" string="D-nummers">
+					<group name="group_top">
+						<group name="group_left">
+							<field name="d204"/>
+							<field name="d209"/>
+							<field name="d210"/>
+							<field name="d212"/>
+							<field name="d213"/>
+							<field name="d214"/>
+							<field name="d215"/>
+							<field name="d216"/>
+							<field name="d217"/>
+							<field name="d217b"/>
+							<field name="d220"/>
+							<field name="d221"/>
+							<field name="d221b"/>
+							<field name="d222"/>
+						</group>
+						<group name="group_right">
+							<field name="d223"/>
+							<field name="d225"/>
+							<field name="d226"/>
+							<field name="d228"/>
+							<field name="d230"/>
+							<field name="d232"/>
+							<field name="d234"/>
+							<field name="d235"/>
+							<field name="d236"/>
+							<field name="d237"/>
+							<field name="d238"/>
+							<field name="d238b"/>
+							<field name="d239"/>
+							<field name="d240"/>
+						</group>
+					</group>
+				</page>
+			</xpath>
+		
+		</field>
+	</record> 
+
+	 <!-- kanban view 
+ 	<record id="view_kaban_product_extended" model="ir.ui.view"> 
+	 	<field name="name">Extended kanban</field> 
+	 	<field name="model">product.template</field> 
+		<field name="inherit_id" ref="product.product_template_kanban_view"/> 
+	 	<field name="arch" type="xml"> 
+			<xpath expr="//kanban/templates/t/div/div/ul/li/field[@name='lst_price']" position="replace">
+            	<field name="consumentenprijs"/>
+            </xpath>
+	 	</field> 
+	</record>   -->
+	<!-- tree view 
+	<record id="view_tree_product_extended" model="ir.ui.view">
+		<field name="name">Extended tree</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_tree_view"/>
+		<field name="arch" type="xml">
+			<xpath expr="//tree/field[@name='type']" position='after'>
+				<field name="consumentenprijs"/>
+			</xpath>
+		</field>
+	</record> -->
+
+	<!-- replace the supplierinfo group in the Procurements tab -->
+	<record id="product_supplierinfo_tree_view" model="ir.ui.view">
+		<field name="name">product.supplierinfo.tree.view</field>
+		<field name="model">product.supplierinfo</field>
+		<field name="arch" type="xml">
+			<tree string="Supplier Information">
+				<field name="sequence" widget="handle"/>
+				<field name="name"/>
+				<field name="inkoopprijs"/>
+				<field name="consumentenprijs"/>
+				<!-- <field name="brutomarge"/> -->
+				<field name="company_id" groups="base.group_multi_company" widget="selection"/>
+			</tree>
+		</field>
+	</record>
+
+</data>
+</openerp>
