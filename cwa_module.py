@@ -70,7 +70,7 @@ class cwa_import_module(models.Model):
             temp_data['taxes_id'] = 'Verkopen/omzet hoog' if temp_data['btw'] == '21' else 'Verkopen/omzet laag'
             temp_data['supplier_taxes_id'] = 'BTW te vorderen hoog (inkopen)' if temp_data['btw'] == '21' else 'BTW te vorderen laag (inkopen)'
             temp_data['available_in_pos'] = 'false'
-            temp_data['pos_categ_id/id'] = 'cwa_module.cwa_pos_categ_%s' % (temp_data['cblcode'][:5])
+            temp_data['pos_categ_id/id'] = 'cwa_pos_categ_%s' % (temp_data['cblcode'][:5])
             temp_data['cwa_product'] = 'true'
             temp_data['to_weight'] = 'true' if temp_data['weegschaalartikel'] == '1' else 'false'
             temp_data['type'] = 'consu'
@@ -123,9 +123,9 @@ class cwa_import_module(models.Model):
                     temp_data[item.tag] = item.text.encode('utf-8').upper()
 
             temp_data['id'] = 'supplier_info_%s_%s' % (temp_data['leveranciernummer'], temp_data['bestelnummer'])
-            temp_data['name/id'] = 'cwa_module.supplier_code_%s' % (temp_data['leveranciernummer'])
+            temp_data['name/id'] = 'supplier_code_%s' % (temp_data['leveranciernummer'])
             temp_data['product_tmpl_id/id'] = self.set_external_id(temp_data)
-            temp_data['pos_categ_id'] = "cwa_module.cwa_pos_categ_%s" % temp_data['cblcode'][:5]
+            temp_data['pos_categ_id'] = "cwa_pos_categ_%s" % temp_data['cblcode'][:5]
 
             temp_list = []
             for tag in supplier_info_tags:
@@ -139,9 +139,9 @@ class cwa_import_module(models.Model):
                 
     def set_external_id(self, data):
         if data['eancode'] == 0:
-            return 'cwa_module.product_ex_id_%s_%s' % (data['leveranciernummer'], data['bestelnummer'])
+            return 'product_ex_id_%s_%s' % (data['leveranciernummer'], data['bestelnummer'])
         else:
-            return 'cwa_module.product_ex_id_%s' % (data['eancode'])
+            return 'product_ex_id_%s' % (data['eancode'])
     
     def set_ean_code(self, ean):
         return sanitize_ean13(ean)
