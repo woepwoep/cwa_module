@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<tree string="Supplier Information">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+
+                    <!-- Add these and remove others -->
+                    <field name="verpakkingce"/>
+                    <field name="sve"/>
+                    <field name="bestelnummer"/>
+                    <!-- end add -->
+
+                    <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                </tree>

@@ -1,0 +1,1721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="False">
+		
+				<record id="cwa_pos_categ_13" model="pos.category">
+					<field name="name">aardappelen, groenten en fruit</field>
+				</record>
+				
+				<record id="cwa_pos_categ_40" model="pos.category">
+					<field name="name">winkelmateriaal</field>
+				</record>
+				
+				<record id="cwa_pos_categ_26" model="pos.category">
+					<field name="name">bloemen en planten</field>
+				</record>
+				
+				<record id="cwa_pos_categ_17" model="pos.category">
+					<field name="name">brood en gebak</field>
+				</record>
+				
+				<record id="cwa_pos_categ_27" model="pos.category">
+					<field name="name">dierenbenodigdheden</field>
+				</record>
+				
+				<record id="cwa_pos_categ_19" model="pos.category">
+					<field name="name">dierenvoeding</field>
+				</record>
+				
+				<record id="cwa_pos_categ_21" model="pos.category">
+					<field name="name">drogmetica</field>
+				</record>
+				
+				<record id="cwa_pos_categ_25" model="pos.category">
+					<field name="name">huishoudelijke artikelen</field>
+				</record>
+				
+				<record id="cwa_pos_categ_12" model="pos.category">
+					<field name="name">kaas</field>
+				</record>
+				
+				<record id="cwa_pos_categ_23" model="pos.category">
+					<field name="name">kantoorbenodigdheden en wenskaarten</field>
+				</record>
+				
+				<record id="cwa_pos_categ_10" model="pos.category">
+					<field name="name">kruidenierswaren</field>
+				</record>
+				
+				<record id="cwa_pos_categ_24" model="pos.category">
+					<field name="name">lectuur</field>
+				</record>
+				
+				<record id="cwa_pos_categ_18" model="pos.category">
+					<field name="name">maaltijden</field>
+				</record>
+				
+				<record id="cwa_pos_categ_28" model="pos.category">
+					<field name="name">overig assortiment</field>
+				</record>
+				
+				<record id="cwa_pos_categ_20" model="pos.category">
+					<field name="name">rookwaren</field>
+				</record>
+				
+				<record id="cwa_pos_categ_22" model="pos.category">
+					<field name="name">schoonmaak en onderhoudsartikelen</field>
+				</record>
+				
+				<record id="cwa_pos_categ_29" model="pos.category">
+					<field name="name">sterk alcoholische dranken</field>
+				</record>
+				
+				<record id="cwa_pos_categ_16" model="pos.category">
+					<field name="name">vis, schaal- en schelpdieren</field>
+				</record>
+				
+				<record id="cwa_pos_categ_15" model="pos.category">
+					<field name="name">vleeswaren en salades</field>
+				</record>
+				
+				<record id="cwa_pos_categ_14" model="pos.category">
+					<field name="name">vlees, wild en gevogelte</field>
+				</record>
+				
+				<record id="cwa_pos_categ_11" model="pos.category">
+					<field name="name">zuivel en eieren</field>
+				</record>
+				
+				<record id="cwa_pos_categ_13100" model="pos.category">
+					<field name="name">aardappelen, groenten en fruit houdbaar</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13105" model="pos.category">
+					<field name="name">aardappelproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13110" model="pos.category">
+					<field name="name">groenteconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13115" model="pos.category">
+					<field name="name">vruchtenconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13200" model="pos.category">
+					<field name="name">aardappelen, groenten en fruit (semi) vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13205" model="pos.category">
+					<field name="name">aardappelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13210" model="pos.category">
+					<field name="name">aardappelproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13215" model="pos.category">
+					<field name="name">verse groenten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13220" model="pos.category">
+					<field name="name">vers fruit</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13300" model="pos.category">
+					<field name="name">diepvries aardappels, groenten en fruit</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13305" model="pos.category">
+					<field name="name">diepvries aardappelproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13310" model="pos.category">
+					<field name="name">groenteproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26200" model="pos.category">
+					<field name="name">bloemen en planten vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26205" model="pos.category">
+					<field name="name">verse bloemen en planten</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26100" model="pos.category">
+					<field name="name">houdbaar bloemen en planten</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26105" model="pos.category">
+					<field name="name">bloemen- en plantverzorging</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17300" model="pos.category">
+					<field name="name">diepvries brood en gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17305" model="pos.category">
+					<field name="name">diepvries bakkerijproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17310" model="pos.category">
+					<field name="name">gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17100" model="pos.category">
+					<field name="name">houdbaar brood en gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17105" model="pos.category">
+					<field name="name">houdbaar brood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17110" model="pos.category">
+					<field name="name">broodvervangers</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17200" model="pos.category">
+					<field name="name">vers brood en gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17205" model="pos.category">
+					<field name="name">groot brood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17210" model="pos.category">
+					<field name="name">klein brood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17213" model="pos.category">
+					<field name="name">halffabrikaat</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17215" model="pos.category">
+					<field name="name">snacks</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17220" model="pos.category">
+					<field name="name">stokbrood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17225" model="pos.category">
+					<field name="name">seizoensbrood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17230" model="pos.category">
+					<field name="name">groot gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17235" model="pos.category">
+					<field name="name">klein gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17240" model="pos.category">
+					<field name="name">banket</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_27100" model="pos.category">
+					<field name="name">houdbare dierenbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_27"/>
+				</record>
+				
+				<record id="cwa_pos_categ_27105" model="pos.category">
+					<field name="name">dierenbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_27"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19300" model="pos.category">
+					<field name="name">diepvries dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19305" model="pos.category">
+					<field name="name">diepvries dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19100" model="pos.category">
+					<field name="name">houdbare dierenvoeding</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19105" model="pos.category">
+					<field name="name">hondenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19110" model="pos.category">
+					<field name="name">kattenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19115" model="pos.category">
+					<field name="name">overig voer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19200" model="pos.category">
+					<field name="name">vers dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19205" model="pos.category">
+					<field name="name">vers dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21100" model="pos.category">
+					<field name="name">houdbare drogmetica</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21105" model="pos.category">
+					<field name="name">lichaamsverzorging, medische verzorging</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21110" model="pos.category">
+					<field name="name">periodeverzorging en luiers</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21115" model="pos.category">
+					<field name="name">sanitaire papierwaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21120" model="pos.category">
+					<field name="name">zakdoekjes</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25100" model="pos.category">
+					<field name="name">houdbare huishoudelijke artikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25110" model="pos.category">
+					<field name="name">huishoudelijke waren en onderhoudsmateriaal</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25120" model="pos.category">
+					<field name="name">babyartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25125" model="pos.category">
+					<field name="name">panty's/nylons</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25130" model="pos.category">
+					<field name="name">sfeer en verlichting</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12200" model="pos.category">
+					<field name="name">kaas (semi-) vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12205" model="pos.category">
+					<field name="name">Nederlandse kaas uitsnij</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12210" model="pos.category">
+					<field name="name">Nederlandse kaas verpakt</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12215" model="pos.category">
+					<field name="name">buitenlandse specialiteiten uitsnij</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12220" model="pos.category">
+					<field name="name">buitenlandse specialiteiten verpakt</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12225" model="pos.category">
+					<field name="name">overige soorten verpakte kaas</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_23105" model="pos.category">
+					<field name="name">kantoorbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_23"/>
+				</record>
+				
+				<record id="cwa_pos_categ_23110" model="pos.category">
+					<field name="name">wenskaarten</field>
+					<field name="parent_id" ref="cwa_pos_categ_23"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10100" model="pos.category">
+					<field name="name">houdbare kruidenierswaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10105" model="pos.category">
+					<field name="name">koffie, cacao, thee</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10110" model="pos.category">
+					<field name="name">houdbare koffiemelk, houdbare koffieroom</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10115" model="pos.category">
+					<field name="name">suiker</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10120" model="pos.category">
+					<field name="name">rijst en deegwaren HB</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10125" model="pos.category">
+					<field name="name">ontbijtproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10130" model="pos.category">
+					<field name="name">bakproducten en dessertingrediÃ«nten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10135" model="pos.category">
+					<field name="name">soepen, bouillons</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10140" model="pos.category">
+					<field name="name">sauzen, mixen</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10145" model="pos.category">
+					<field name="name">reformproducten, dieetproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10150" model="pos.category">
+					<field name="name">babyvoeding, kindervoeding</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10155" model="pos.category">
+					<field name="name">boterhambeleg</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10160" model="pos.category">
+					<field name="name">koek, koekjes, banketstuksartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10161" model="pos.category">
+					<field name="name">chocolade en chocoladeproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10162" model="pos.category">
+					<field name="name">snoep en zoetwaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10165" model="pos.category">
+					<field name="name">zoutjes, onderleggers, notenbarproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10170" model="pos.category">
+					<field name="name">bieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10175" model="pos.category">
+					<field name="name">wijnen en aperitieven</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10180" model="pos.category">
+					<field name="name">niet alcoholhoudende dranken</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10200" model="pos.category">
+					<field name="name">kruidenierswaren  (semi-) vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10220" model="pos.category">
+					<field name="name">rijst en deegwaren semi sers</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10265" model="pos.category">
+					<field name="name">zoutjes, onderleggers, notenbarproducten SV</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10280" model="pos.category">
+					<field name="name">niet-alcoholhoudende dranken SV</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24100" model="pos.category">
+					<field name="name">houdbare lectuur</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24105" model="pos.category">
+					<field name="name">dagbladen</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24110" model="pos.category">
+					<field name="name">tijdschriften, opiniebladen</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24115" model="pos.category">
+					<field name="name">boeken, pockets</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18300" model="pos.category">
+					<field name="name">diepvries maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18305" model="pos.category">
+					<field name="name">diepvries maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18100" model="pos.category">
+					<field name="name">houdbare maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18105" model="pos.category">
+					<field name="name">houdbare maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18200" model="pos.category">
+					<field name="name">verse maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18205" model="pos.category">
+					<field name="name">verse lunchproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18210" model="pos.category">
+					<field name="name">vers dinerproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28100" model="pos.category">
+					<field name="name">houdbaar overig assortiment</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28105" model="pos.category">
+					<field name="name">winkelartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28110" model="pos.category">
+					<field name="name">textiel</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28115" model="pos.category">
+					<field name="name">foto, audio, video</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28125" model="pos.category">
+					<field name="name">diensten en services</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28130" model="pos.category">
+					<field name="name">overig huishoudelijk assortiment</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28150" model="pos.category">
+					<field name="name">voedingsgebonden OTC</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28155" model="pos.category">
+					<field name="name">artikelen tegen aandoeningen,  preparaten</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28160" model="pos.category">
+					<field name="name">gedragsbeinvloedende artikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28165" model="pos.category">
+					<field name="name">testen, diagnostische producten, meetapparatuur</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28195" model="pos.category">
+					<field name="name">overig assortiment</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_20100" model="pos.category">
+					<field name="name">houdbare rookwaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_20"/>
+				</record>
+				
+				<record id="cwa_pos_categ_20105" model="pos.category">
+					<field name="name">tabaksproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_20"/>
+				</record>
+				
+				<record id="cwa_pos_categ_20110" model="pos.category">
+					<field name="name">hulpmiddelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_20"/>
+				</record>
+				
+				<record id="cwa_pos_categ_22100" model="pos.category">
+					<field name="name">houdbare schoonmaak en onderhoudsartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_22"/>
+				</record>
+				
+				<record id="cwa_pos_categ_22105" model="pos.category">
+					<field name="name">was- en reinigingsmiddelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_22"/>
+				</record>
+				
+				<record id="cwa_pos_categ_22110" model="pos.category">
+					<field name="name">poetsmiddelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_22"/>
+				</record>
+				
+				<record id="cwa_pos_categ_29100" model="pos.category">
+					<field name="name">houdbare sterk alcoholische dranken</field>
+					<field name="parent_id" ref="cwa_pos_categ_29"/>
+				</record>
+				
+				<record id="cwa_pos_categ_29105" model="pos.category">
+					<field name="name">sterk alcoholische dranken</field>
+					<field name="parent_id" ref="cwa_pos_categ_29"/>
+				</record>
+				
+				<record id="cwa_pos_categ_40000" model="pos.category">
+					<field name="name">winkelmateriaal</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_42000" model="pos.category">
+					<field name="name">kassabenodigdheden, prijsbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_43000" model="pos.category">
+					<field name="name">schoon- en hygieneartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_41000" model="pos.category">
+					<field name="name">stylingmateriaal</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16300" model="pos.category">
+					<field name="name">diepvries vis, schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16305" model="pos.category">
+					<field name="name">diepvries vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16310" model="pos.category">
+					<field name="name">diepvries schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16100" model="pos.category">
+					<field name="name">houdbare vis, schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16105" model="pos.category">
+					<field name="name">houdbare visproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16200" model="pos.category">
+					<field name="name">(semi)verse vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16205" model="pos.category">
+					<field name="name">verse vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16210" model="pos.category">
+					<field name="name">schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16215" model="pos.category">
+					<field name="name">verpakte vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16220" model="pos.category">
+					<field name="name">verpakte schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15200" model="pos.category">
+					<field name="name">(semi-) verse vleeswaren en salades</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15205" model="pos.category">
+					<field name="name">snijverse vleeswaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15210" model="pos.category">
+					<field name="name">verpakte gesneden vleeswaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15215" model="pos.category">
+					<field name="name">stuks artikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15220" model="pos.category">
+					<field name="name">salades en sauzen</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15100" model="pos.category">
+					<field name="name">vleeswarenconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15105" model="pos.category">
+					<field name="name">vleeswarenconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14300" model="pos.category">
+					<field name="name">diepvries vlees, wild en gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14305" model="pos.category">
+					<field name="name">diepvries vlees, wild en gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14310" model="pos.category">
+					<field name="name">vleessnacks</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14100" model="pos.category">
+					<field name="name">houdbaar vlees, wild en gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14105" model="pos.category">
+					<field name="name">vleesconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14200" model="pos.category">
+					<field name="name">vers vlees</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14205" model="pos.category">
+					<field name="name">vers vlees</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14210" model="pos.category">
+					<field name="name">vers gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14215" model="pos.category">
+					<field name="name">vers wild</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11300" model="pos.category">
+					<field name="name">diepvries zuivel en eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11305" model="pos.category">
+					<field name="name">diepvries desserts en sappen</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11310" model="pos.category">
+					<field name="name">ijs</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11100" model="pos.category">
+					<field name="name">houdbare zuivel en eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11105" model="pos.category">
+					<field name="name">houdbare melk</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11110" model="pos.category">
+					<field name="name">overige houdbare zuivel</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11200" model="pos.category">
+					<field name="name">(semi-) vers zuivel en eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11205" model="pos.category">
+					<field name="name">eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11210" model="pos.category">
+					<field name="name">dagverse melk</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11215" model="pos.category">
+					<field name="name">overige dagverse zuivel bulk</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11220" model="pos.category">
+					<field name="name">dagverse zuivelspecialiteiten</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11225" model="pos.category">
+					<field name="name">geelvetten, witvetten</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13" model="pos.category">
+					<field name="name">aardappelen, groenten en fruit</field>
+				</record>
+				
+				<record id="cwa_pos_categ_26" model="pos.category">
+					<field name="name">bloemen en planten</field>
+				</record>
+				
+				<record id="cwa_pos_categ_17" model="pos.category">
+					<field name="name">brood en gebak</field>
+				</record>
+				
+				<record id="cwa_pos_categ_27" model="pos.category">
+					<field name="name">dierenbenodigdheden</field>
+				</record>
+				
+				<record id="cwa_pos_categ_19" model="pos.category">
+					<field name="name">dierenvoeding</field>
+				</record>
+				
+				<record id="cwa_pos_categ_21" model="pos.category">
+					<field name="name">drogmetica</field>
+				</record>
+				
+				<record id="cwa_pos_categ_25" model="pos.category">
+					<field name="name">huishoudelijke artikelen</field>
+				</record>
+				
+				<record id="cwa_pos_categ_12" model="pos.category">
+					<field name="name">kaas</field>
+				</record>
+				
+				<record id="cwa_pos_categ_23" model="pos.category">
+					<field name="name">kantoorbenodigdheden en wenskaarten</field>
+				</record>
+				
+				<record id="cwa_pos_categ_10" model="pos.category">
+					<field name="name">kruidenierswaren</field>
+				</record>
+				
+				<record id="cwa_pos_categ_24" model="pos.category">
+					<field name="name">lectuur</field>
+				</record>
+				
+				<record id="cwa_pos_categ_18" model="pos.category">
+					<field name="name">maaltijden</field>
+				</record>
+				
+				<record id="cwa_pos_categ_28" model="pos.category">
+					<field name="name">overig assortiment</field>
+				</record>
+				
+				<record id="cwa_pos_categ_20" model="pos.category">
+					<field name="name">rookwaren</field>
+				</record>
+				
+				<record id="cwa_pos_categ_22" model="pos.category">
+					<field name="name">schoonmaak en onderhoudsartikelen</field>
+				</record>
+				
+				<record id="cwa_pos_categ_29" model="pos.category">
+					<field name="name">sterk alcoholische dranken</field>
+				</record>
+				
+				<record id="cwa_pos_categ_16" model="pos.category">
+					<field name="name">vis, schaal- en schelpdieren</field>
+				</record>
+				
+				<record id="cwa_pos_categ_15" model="pos.category">
+					<field name="name">vleeswaren en salades</field>
+				</record>
+				
+				<record id="cwa_pos_categ_14" model="pos.category">
+					<field name="name">vlees, wild en gevogelte</field>
+				</record>
+				
+				<record id="cwa_pos_categ_11" model="pos.category">
+					<field name="name">zuivel en eieren</field>
+				</record>
+				###########################################################
+				<record id="cwa_pos_categ_13100" model="pos.category">
+					<field name="name">aardappelen, groenten en fruit houdbaar</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13105" model="pos.category">
+					<field name="name">aardappelproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13110" model="pos.category">
+					<field name="name">groenteconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13115" model="pos.category">
+					<field name="name">vruchtenconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13200" model="pos.category">
+					<field name="name">aardappelen, groenten en fruit (semi) vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13205" model="pos.category">
+					<field name="name">aardappelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13210" model="pos.category">
+					<field name="name">aardappelproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13215" model="pos.category">
+					<field name="name">verse groenten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13220" model="pos.category">
+					<field name="name">vers fruit</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13300" model="pos.category">
+					<field name="name">diepvries aardappels, groenten en fruit</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13305" model="pos.category">
+					<field name="name">diepvries aardappelproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_13310" model="pos.category">
+					<field name="name">groenteproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_13"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26200" model="pos.category">
+					<field name="name">bloemen en planten vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26205" model="pos.category">
+					<field name="name">verse bloemen en planten</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26100" model="pos.category">
+					<field name="name">houdbaar bloemen en planten</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_26105" model="pos.category">
+					<field name="name">bloemen- en plantverzorging</field>
+					<field name="parent_id" ref="cwa_pos_categ_26"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17300" model="pos.category">
+					<field name="name">diepvries brood en gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17305" model="pos.category">
+					<field name="name">diepvries bakkerijproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17310" model="pos.category">
+					<field name="name">gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17100" model="pos.category">
+					<field name="name">houdbaar brood en gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17105" model="pos.category">
+					<field name="name">houdbaar brood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17110" model="pos.category">
+					<field name="name">broodvervangers</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17200" model="pos.category">
+					<field name="name">vers brood en gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17205" model="pos.category">
+					<field name="name">groot brood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17210" model="pos.category">
+					<field name="name">klein brood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17213" model="pos.category">
+					<field name="name">halffabrikaat</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17215" model="pos.category">
+					<field name="name">snacks</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17220" model="pos.category">
+					<field name="name">stokbrood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17225" model="pos.category">
+					<field name="name">seizoensbrood</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17230" model="pos.category">
+					<field name="name">groot gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17235" model="pos.category">
+					<field name="name">klein gebak</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_17240" model="pos.category">
+					<field name="name">banket</field>
+					<field name="parent_id" ref="cwa_pos_categ_17"/>
+				</record>
+				
+				<record id="cwa_pos_categ_27100" model="pos.category">
+					<field name="name">houdbare dierenbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_27"/>
+				</record>
+				
+				<record id="cwa_pos_categ_27105" model="pos.category">
+					<field name="name">dierenbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_27"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19300" model="pos.category">
+					<field name="name">diepvries dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19305" model="pos.category">
+					<field name="name">diepvries dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19100" model="pos.category">
+					<field name="name">houdbare dierenvoeding</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19105" model="pos.category">
+					<field name="name">hondenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19110" model="pos.category">
+					<field name="name">kattenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19115" model="pos.category">
+					<field name="name">overig voer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19200" model="pos.category">
+					<field name="name">vers dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_19205" model="pos.category">
+					<field name="name">vers dierenvoer</field>
+					<field name="parent_id" ref="cwa_pos_categ_19"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21100" model="pos.category">
+					<field name="name">houdbare drogmetica</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21105" model="pos.category">
+					<field name="name">lichaamsverzorging, medische verzorging</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21110" model="pos.category">
+					<field name="name">periodeverzorging en luiers</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21115" model="pos.category">
+					<field name="name">sanitaire papierwaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_21120" model="pos.category">
+					<field name="name">zakdoekjes</field>
+					<field name="parent_id" ref="cwa_pos_categ_21"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25100" model="pos.category">
+					<field name="name">houdbare huishoudelijke artikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25110" model="pos.category">
+					<field name="name">huishoudelijke waren en onderhoudsmateriaal</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25120" model="pos.category">
+					<field name="name">babyartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25125" model="pos.category">
+					<field name="name">panty's/nylons</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_25130" model="pos.category">
+					<field name="name">sfeer en verlichting</field>
+					<field name="parent_id" ref="cwa_pos_categ_25"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12200" model="pos.category">
+					<field name="name">kaas (semi-) vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12205" model="pos.category">
+					<field name="name">Nederlandse kaas uitsnij</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12210" model="pos.category">
+					<field name="name">Nederlandse kaas verpakt</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12215" model="pos.category">
+					<field name="name">buitenlandse specialiteiten uitsnij</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12220" model="pos.category">
+					<field name="name">buitenlandse specialiteiten verpakt</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_12225" model="pos.category">
+					<field name="name">overige soorten verpakte kaas</field>
+					<field name="parent_id" ref="cwa_pos_categ_12"/>
+				</record>
+				
+				<record id="cwa_pos_categ_23105" model="pos.category">
+					<field name="name">kantoorbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_23"/>
+				</record>
+				
+				<record id="cwa_pos_categ_23110" model="pos.category">
+					<field name="name">wenskaarten</field>
+					<field name="parent_id" ref="cwa_pos_categ_23"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10100" model="pos.category">
+					<field name="name">houdbare kruidenierswaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10105" model="pos.category">
+					<field name="name">koffie, cacao, thee</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10110" model="pos.category">
+					<field name="name">houdbare koffiemelk, houdbare koffieroom</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10115" model="pos.category">
+					<field name="name">suiker</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10120" model="pos.category">
+					<field name="name">rijst en deegwaren HB</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10125" model="pos.category">
+					<field name="name">ontbijtproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10130" model="pos.category">
+					<field name="name">bakproducten en dessertingrediÃ«nten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10135" model="pos.category">
+					<field name="name">soepen, bouillons</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10140" model="pos.category">
+					<field name="name">sauzen, mixen</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10145" model="pos.category">
+					<field name="name">reformproducten, dieetproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10150" model="pos.category">
+					<field name="name">babyvoeding, kindervoeding</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10155" model="pos.category">
+					<field name="name">boterhambeleg</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10160" model="pos.category">
+					<field name="name">koek, koekjes, banketstuksartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10161" model="pos.category">
+					<field name="name">chocolade en chocoladeproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10162" model="pos.category">
+					<field name="name">snoep en zoetwaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10165" model="pos.category">
+					<field name="name">zoutjes, onderleggers, notenbarproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10170" model="pos.category">
+					<field name="name">bieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10175" model="pos.category">
+					<field name="name">wijnen en aperitieven</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10180" model="pos.category">
+					<field name="name">niet alcoholhoudende dranken</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10200" model="pos.category">
+					<field name="name">kruidenierswaren  (semi-) vers</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10220" model="pos.category">
+					<field name="name">rijst en deegwaren semi sers</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10265" model="pos.category">
+					<field name="name">zoutjes, onderleggers, notenbarproducten SV</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_10280" model="pos.category">
+					<field name="name">niet-alcoholhoudende dranken SV</field>
+					<field name="parent_id" ref="cwa_pos_categ_10"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24100" model="pos.category">
+					<field name="name">houdbare lectuur</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24105" model="pos.category">
+					<field name="name">dagbladen</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24110" model="pos.category">
+					<field name="name">tijdschriften, opiniebladen</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_24115" model="pos.category">
+					<field name="name">boeken, pockets</field>
+					<field name="parent_id" ref="cwa_pos_categ_24"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18300" model="pos.category">
+					<field name="name">diepvries maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18305" model="pos.category">
+					<field name="name">diepvries maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18100" model="pos.category">
+					<field name="name">houdbare maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18105" model="pos.category">
+					<field name="name">houdbare maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18200" model="pos.category">
+					<field name="name">verse maaltijden</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18205" model="pos.category">
+					<field name="name">verse lunchproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_18210" model="pos.category">
+					<field name="name">vers dinerproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_18"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28100" model="pos.category">
+					<field name="name">houdbaar overig assortiment</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28105" model="pos.category">
+					<field name="name">winkelartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28110" model="pos.category">
+					<field name="name">textiel</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28115" model="pos.category">
+					<field name="name">foto, audio, video</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28125" model="pos.category">
+					<field name="name">diensten en services</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28130" model="pos.category">
+					<field name="name">overig huishoudelijk assortiment</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28150" model="pos.category">
+					<field name="name">voedingsgebonden OTC</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28155" model="pos.category">
+					<field name="name">artikelen tegen aandoeningen,  preparaten</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28160" model="pos.category">
+					<field name="name">gedragsbeinvloedende artikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28165" model="pos.category">
+					<field name="name">testen, diagnostische producten, meetapparatuur</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_28195" model="pos.category">
+					<field name="name">overig assortiment</field>
+					<field name="parent_id" ref="cwa_pos_categ_28"/>
+				</record>
+				
+				<record id="cwa_pos_categ_20100" model="pos.category">
+					<field name="name">houdbare rookwaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_20"/>
+				</record>
+				
+				<record id="cwa_pos_categ_20105" model="pos.category">
+					<field name="name">tabaksproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_20"/>
+				</record>
+				
+				<record id="cwa_pos_categ_20110" model="pos.category">
+					<field name="name">hulpmiddelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_20"/>
+				</record>
+				
+				<record id="cwa_pos_categ_22100" model="pos.category">
+					<field name="name">houdbare schoonmaak en onderhoudsartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_22"/>
+				</record>
+				
+				<record id="cwa_pos_categ_22105" model="pos.category">
+					<field name="name">was- en reinigingsmiddelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_22"/>
+				</record>
+				
+				<record id="cwa_pos_categ_22110" model="pos.category">
+					<field name="name">poetsmiddelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_22"/>
+				</record>
+				
+				<record id="cwa_pos_categ_29100" model="pos.category">
+					<field name="name">houdbare sterk alcoholische dranken</field>
+					<field name="parent_id" ref="cwa_pos_categ_29"/>
+				</record>
+				
+				<record id="cwa_pos_categ_29105" model="pos.category">
+					<field name="name">sterk alcoholische dranken</field>
+					<field name="parent_id" ref="cwa_pos_categ_29"/>
+				</record>
+				
+				<record id="cwa_pos_categ_40000" model="pos.category">
+					<field name="name">winkelmateriaal</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_42000" model="pos.category">
+					<field name="name">kassabenodigdheden, prijsbenodigdheden</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_43000" model="pos.category">
+					<field name="name">schoon- en hygieneartikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_41000" model="pos.category">
+					<field name="name">stylingmateriaal</field>
+					<field name="parent_id" ref="cwa_pos_categ_40"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16300" model="pos.category">
+					<field name="name">diepvries vis, schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16305" model="pos.category">
+					<field name="name">diepvries vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16310" model="pos.category">
+					<field name="name">diepvries schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16100" model="pos.category">
+					<field name="name">houdbare vis, schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16105" model="pos.category">
+					<field name="name">houdbare visproducten</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16200" model="pos.category">
+					<field name="name">(semi)verse vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16205" model="pos.category">
+					<field name="name">verse vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16210" model="pos.category">
+					<field name="name">schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16215" model="pos.category">
+					<field name="name">verpakte vis</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_16220" model="pos.category">
+					<field name="name">verpakte schaal- en schelpdieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_16"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15200" model="pos.category">
+					<field name="name">(semi-) verse vleeswaren en salades</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15205" model="pos.category">
+					<field name="name">snijverse vleeswaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15210" model="pos.category">
+					<field name="name">verpakte gesneden vleeswaren</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15215" model="pos.category">
+					<field name="name">stuks artikelen</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15220" model="pos.category">
+					<field name="name">salades en sauzen</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15100" model="pos.category">
+					<field name="name">vleeswarenconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_15105" model="pos.category">
+					<field name="name">vleeswarenconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_15"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14300" model="pos.category">
+					<field name="name">diepvries vlees, wild en gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14305" model="pos.category">
+					<field name="name">diepvries vlees, wild en gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14310" model="pos.category">
+					<field name="name">vleessnacks</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14100" model="pos.category">
+					<field name="name">houdbaar vlees, wild en gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14105" model="pos.category">
+					<field name="name">vleesconserven</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14200" model="pos.category">
+					<field name="name">vers vlees</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14205" model="pos.category">
+					<field name="name">vers vlees</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14210" model="pos.category">
+					<field name="name">vers gevogelte</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_14215" model="pos.category">
+					<field name="name">vers wild</field>
+					<field name="parent_id" ref="cwa_pos_categ_14"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11300" model="pos.category">
+					<field name="name">diepvries zuivel en eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11305" model="pos.category">
+					<field name="name">diepvries desserts en sappen</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11310" model="pos.category">
+					<field name="name">ijs</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11100" model="pos.category">
+					<field name="name">houdbare zuivel en eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11105" model="pos.category">
+					<field name="name">houdbare melk</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11110" model="pos.category">
+					<field name="name">overige houdbare zuivel</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11200" model="pos.category">
+					<field name="name">(semi-) vers zuivel en eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11205" model="pos.category">
+					<field name="name">eieren</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11210" model="pos.category">
+					<field name="name">dagverse melk</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11215" model="pos.category">
+					<field name="name">overige dagverse zuivel bulk</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11220" model="pos.category">
+					<field name="name">dagverse zuivelspecialiteiten</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+				<record id="cwa_pos_categ_11225" model="pos.category">
+					<field name="name">geelvetten, witvetten</field>
+					<field name="parent_id" ref="cwa_pos_categ_11"/>
+				</record>
+				
+
+	</data>
+</openerp>
