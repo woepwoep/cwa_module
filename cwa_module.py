@@ -58,12 +58,12 @@ class cwa_import_module(models.Model):
                 if item.tag not in product_tags:
                     product_tags.append(item.tag)
                 if type(item.text) is types.NoneType:
-                    temp_data[item.tag] = "NONE"
+                    temp_data[item.tag] = 0
                 else:
                     temp_data[item.tag] = item.text.encode('utf-8').upper()
                 
             temp_data['id'] = self.set_external_id(temp_data)
-            temp_data['ean13'] = 0 if temp_data['eancode'] == "NONE" else self.set_ean_code(temp_data['eancode'])
+            temp_data['ean13'] = 0 if temp_data['eancode'] == 0 else self.set_ean_code(temp_data['eancode'])
             temp_data['name'] = temp_data['omschrijving']
             temp_data['list_price'] = float(temp_data['consumentenprijs'])
             temp_data['categ_id/id'] = "cwa_cbl_cat.%s" % temp_data['cblcode']
@@ -92,13 +92,13 @@ class cwa_import_module(models.Model):
                 try:
                     temp_list.append(temp_data[tag])
                 except KeyError:
-                    temp_list.append("NONE")
+                    temp_list.append("KEYERROR")
             
             #check if product already exists in the db
             shared_name_ids = irmodel_data_obj.search(cr, uid, [('name', '=', temp_data['id'])])
             product_exists = False
             for product in products:
-                if product[3] == temp_data['eancode']:
+                if product[0] == temp_data['id']:
                     product_exists = True
                     break
                 
@@ -118,30 +118,30 @@ class cwa_import_module(models.Model):
                 if item.tag not in supplier_info_tags:
                     supplier_info_tags.append(item.tag)
                 if type(item.text) is types.NoneType:
-                    temp_data[item.tag] = "NONE"
+                    temp_data[item.tag] = 0
                 else:
                     temp_data[item.tag] = item.text.encode('utf-8').upper()
-                    
+
             temp_data['id'] = 'supplier_info_%s_%s' % (temp_data['leveranciernummer'], temp_data['bestelnummer'])
             temp_data['name/id'] = 'cwa_module.supplier_code_%s' % (temp_data['leveranciernummer'])
             temp_data['product_tmpl_id/id'] = self.set_external_id(temp_data)
             temp_data['pos_categ_id'] = "cwa_module.cwa_pos_categ_%s" % temp_data['cblcode'][:5]
-                
+
             temp_list = []
             for tag in supplier_info_tags:
                 try:
                     temp_list.append(temp_data[tag])
                 except KeyError:
-                    temp_list.append("NONE")
+                    temp_list.append("KEYERROR")
             supplier_info.append(temp_list)
         return supplier_info, supplier_info_tags
                 
                 
     def set_external_id(self, data):
-        if data['eancode'].lower() == 'none' or data['eancode'] == '0000000000000':
-            return 'product_ex_id_%s_%s' % (data['leveranciernummer'], data['bestelnummer'])
+        if data['eancode'] == 0:
+            return 'cwa_module.product_ex_id_%s_%s' % (data['leveranciernummer'], data['bestelnummer'])
         else:
-            return 'product_ex_id_%s' % (data['eancode'])
+            return 'cwa_module.product_ex_id_%s' % (data['eancode'])
     
     def set_ean_code(self, ean):
         return sanitize_ean13(ean)
@@ -153,14 +153,17 @@ class cwa_import_module(models.Model):
     def load_records(self, cr, uid, tags, data, model):
         data = self.split_data(data)
         for d in data:
-            new_cr = self.pool.cursor()
-            x = self.pool.get(model).load(new_cr, uid, tags, d)
-            new_cr.commit()
-            new_cr.close()
-            if len(x['messages']) > 0:
-                _logger.error(x)
-            else:
-                _logger.warning(x)
+            for attempt in range(5):
+                new_cr = self.pool.cursor()
+                x = self.pool.get(model).load(new_cr, uid, tags, d)
+                new_cr.commit()
+                new_cr.close()
+                if len(x['messages']) > 0:
+                    _logger.warning("attempt..%s" % attempt)
+                    continue
+                else:
+                    _logger.warning("succes..%s" % attempt)
+                    break
         return True
     
     def gen_tmp_name(self):
@@ -386,8 +389,6 @@ class extended_template(models.Model):
 #############################################################################################################
 def sanitize_ean13(ean13):
     """Creates and returns a valid ean13 from an invalid one"""
-    if not ean13:
-        return "0000000000000"
     ean13 = re.sub("[A-Za-z]","0",ean13);
     ean13 = re.sub("[^0-9]","",ean13);
     ean13 = ean13[:13]
