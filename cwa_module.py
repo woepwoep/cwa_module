@@ -73,7 +73,7 @@ class cwa_import_module(models.Model):
             temp_data['pos_categ_id/id'] = 'cwa_module.cwa_pos_categ_%s' % (temp_data['cblcode'][:5])
             temp_data['cwa_product'] = 'true'
             temp_data['to_weight'] = 'true' if temp_data['weegschaalartikel'] == '1' else 'false'
-            temp_data['type'] = 'product'
+            temp_data['type'] = 'consu'
             try:
                 temp_data['use_deposit'] = 'true' if statiegeld_translations[temp_data['statiegeld']] != 0 else 'false'
                 temp_data['select_deposit/id'] = statiegeld_translations[temp_data['statiegeld']] if temp_data['use_deposit'] != 'false' else 0

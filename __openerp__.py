@@ -15,6 +15,6 @@
              'data/statiegeld_products.xml',
              'data/ir.config_parameter.xml',
              'data/schapetiket_report.xml',
-             
+             'retailer_view.xml',
              ],
 }

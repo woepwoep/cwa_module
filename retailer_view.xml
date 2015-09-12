@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp><data>
+
+<record id="product_template_retailer_view_search" model="ir.ui.view">
+	<field name="name">product.template.retailer.search</field>
+	<field name="model">product.template</field>
+	<field name="arch" type="xml">
+		<search string="Product">
+			<field name="name" string="Product" filter_domain="['|',('default_code','ilike',self),('name','ilike',self)]"/>
+			<filter string="Services" icon="terp-accessories-archiver" domain="[('type','=','service')]"/>
+			<filter string="Consumable" name="consumable" icon="terp-accessories-archiver" domain="[('type','=','consu')]" help="Consumable products"/>
+			<separator/>
+			<filter string="Can be Sold" name="filter_to_sell" icon="terp-accessories-archiver-minus" domain="[('sale_ok','=',1)]"/>
+			<field name="categ_id" filter_domain="[('categ_id', 'child_of', self)]"/>
+			<field string="Product Variant" name="product_variant_ids" filter_domain="['|', ('product_variant_ids.name','ilike',self), ('product_variant_ids.attribute_value_ids.attribute_id.name','ilike',self)]"/>
+			<field name="company_id"/>
+			<field name="pricelist_id" widget="selection" context="{'pricelist': self}" filter_domain="[]" groups="product.group_sale_pricelist"/> 
+			<!-- Keep widget=selection on this field to pass numeric `self` value, which is not the case for regular m2o widgets! -->
+			<group  expand='0' string='Group by...'>
+				<filter string='Category' domain="[]" context="{'group_by' : 'categ_id'}"/>
+				<filter string='Default Unit of Measure' icon="terp-mrp" domain="[]" context="{'group_by' : 'uom_id'}"/>
+				<filter string='Type' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'type'}"/>
+			</group>
+		</search>
+	</field>
+</record>
+    
+<record id="product_template_retailer_view" model="ir.ui.view">
+    <field name="name">product.template.retailer.form</field>
+    <field name="model">product.template</field>
+    <field name="arch" type="xml">
+        <form string="Retailer view">
+            <sheet>		
+                <div class="oe_left" style="width: 500px;">
+					<field name="image_medium" widget="image" class="oe_avatar oe_left" modifiers="{}"/>
+					<div class="oe_title" style="width: 390px;">
+						<label class="oe_edit_only" for="name" string="Product Name"/>
+						<h1>
+							<field name="name" class="oe_inline" modifiers="{'required': true}"/>
+						</h1>
+					</div>
+				</div>
+                <notebook>
+                	<page name="extended_information" string="Retailer View">
+						<group name="group_top">
+							<group name="group_left">
+								<field name="available_in_pos"/>
+								<field name="eancode"/>
+								<field name="cblcode"/>
+								<field name="merk"/>
+								<field name="omschrijving"/>
+								<field name="kassaomschrijving"/>
+								<field name="inhoud" />
+								<field name="eenheid"/>
+								<field name="verpakkingce"/>
+								<field name="statiegeld"/>
+								<field name="weegschaalartikel"/>
+								<field name="wichtartikel"/>
+								<field name="pluartikel"/>
+								<field name="plucode"/>
+								<field name="btw"/>
+								<field name="lst_price"/>
+								<field name="kwaliteit"/>
+								<field name="herkomst"/>
+								<field name="status"/>
+							</group>
+							<group name="group_right">
+								<field name="ingredienten"/>
+								<field name="proefdiervrij"/>
+								<field name="vegetarisch"/>
+								<field name="veganistisch"/>
+								<field name="rauwemelk"/>
+								<field name="d204"/>
+								<field name="d209"/>
+								<field name="d210"/>
+								<field name="d212"/>
+								<field name="d213"/>
+								<field name="d214"/>
+								<field name="d234"/>
+								<field name="d215"/>
+								<field name="d239"/>
+								<field name="d216"/>
+								<field name="d217"/>
+								<field name="d217b"/>
+								<field name="d220"/>
+								<field name="d221"/>
+								<field name="d221b"/>
+								<field name="d222"/>
+								<field name="d223"/>
+								<field name="d236"/>
+								<field name="d238"/>
+								<field name="d238b"/>
+								<field name="d225"/>
+								<field name="d226"/>
+								<field name="d228"/>
+								<field name="d230"/>
+								<field name="d232"/>
+								<field name="d237"/>
+								<field name="d240"/>
+								<field name="d241"/>
+								<field name="d242"/>
+								<field name="aantaldagenhoudbaar"/>
+								<field name="bewaartemperatuur"/>
+								<field name="gebruikstips"/>
+								<field name="lengte"/>
+								<field name="breedte"/>
+								<field name="hoogte"/>
+								<!-- field name="code"/ -->
+								<!-- field name="voedingswaarde"/ -->
+								<field name="ingangsdatum"/>
+							</group>
+						</group>
+					</page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+<record model="ir.actions.act_window" id="retailer_view_action">
+	<field name="name">Retailer view</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">product.template</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+</record> 
+
+<record model="ir.actions.act_window.view" id="retailer_tree_view_action">
+    <field name="act_window_id" ref="retailer_view_action" />
+    <field name="sequence" eval="19" />
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="product.product_template_tree_view" />
+</record>
+
+<record model="ir.actions.act_window.view" id="retailer_form_view_action">
+    <field name="act_window_id" ref="retailer_view_action" />
+    <field name="sequence" eval="20" />
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="product_template_retailer_view" />
+</record>
+
+<!-- retailer view menu item -->
+<menuitem 
+    name="Retailer View" 
+    parent="base.menu_product" 
+    id="retailer_view_menuitem" 
+    sequence="15" 
+    action="retailer_view_action"/>
+	
+</data></openerp>
