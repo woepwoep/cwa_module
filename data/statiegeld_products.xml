@@ -3,117 +3,117 @@
     <data noupdate="0">
         
         <record id="cwa_statiegeld_008" model="product.template">
-            <field name="name">Statiegeld 0.08</field>
+            <field name="name">STATIEGELD 0.08</field>
             <field name="list_price">0.08</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
         <record id="cwa_statiegeld_inname_008" model="product.template">
-            <field name="name">Statiegeld Inname 0.08</field>
+            <field name="name">STATIEGELD INNAME 0.08</field>
             <field name="list_price">-0.08</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>            
         </record>
         
         <record id="cwa_statiegeld_010" model="product.template">
-            <field name="name">Statiegeld 0.10</field>
+            <field name="name">STATIEGELD 0.10</field>
             <field name="list_price">0.10</field>
 			<field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
         <record id="cwa_statiegeld_inname_010" model="product.template">
-            <field name="name">Statiegeld Inname 0.10</field>
+            <field name="name">STATIEGELD INNAME 0.10</field>
             <field name="list_price">-0.10</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
         
         <record id="cwa_statiegeld_015" model="product.template">
-            <field name="name">Statiegeld 0.15</field>
+            <field name="name">STATIEGELD 0.15</field>
             <field name="list_price">0.15</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
 		<record id="cwa_statiegeld_inname_015" model="product.template">
-            <field name="name">Statiegeld Inname 0.15</field>
+            <field name="name">STATIEGELD INNAME 0.15</field>
             <field name="list_price">-0.15</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
         
 		<record id="cwa_statiegeld_025" model="product.template">
-			<field name="name">Statiegeld 0.25</field>
+			<field name="name">STATIEGELD 0.25</field>
 			<field name="list_price">0.25</field>
 			<field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
 		</record>
 		<record id="cwa_statiegeld_inname_025" model="product.template">
-            <field name="name">Statiegeld Inname 0.25</field>
+            <field name="name">STATIEGELD INNAME 0.25</field>
             <field name="list_price">-0.25</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
 		
 		<record id="cwa_statiegeld_040" model="product.template">
-			<field name="name">Statiegeld 0.40</field>
+			<field name="name">STATIEGELD 0.40</field>
 			<field name="list_price">0.40</field>
 			<field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
 		</record>
 		<record id="cwa_statiegeld_inname_040" model="product.template">
-            <field name="name">Statiegeld Inname 0.40</field>
+            <field name="name">STATIEGELD INNAME 0.40</field>
             <field name="list_price">-0.40</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
 		
 		<record id="cwa_statiegeld_045" model="product.template">
-			<field name="name">Statiegeld 0.45</field>
+			<field name="name">STATIEGELD 0.45</field>
 			<field name="list_price">0.45</field>
 			<field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
 		</record>	
 		<record id="cwa_statiegeld_inname_045" model="product.template">
-            <field name="name">Statiegeld Inname 0.45</field>
+            <field name="name">STATIEGELD INNAME 0.45</field>
             <field name="list_price">-0.45</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
 			
 		<record id="cwa_statiegeld_060" model="product.template">
-			<field name="name">Statiegeld 0.60</field>
+			<field name="name">STATIEGELD 0.60</field>
 			<field name="list_price">0.60</field>
 			<field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
 		</record>
 		<record id="cwa_statiegeld_inname_060" model="product.template">
-            <field name="name">Statiegeld Inname 0.60</field>
+            <field name="name">STATIEGELD INNAME 0.60</field>
             <field name="list_price">-0.60</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
 			
 		<record id="cwa_statiegeld_175" model="product.template">
-			<field name="name">Statiegeld 1.75</field>
+			<field name="name">STATIEGELD 1.75</field>
 			<field name="list_price">1.75</field>
 			<field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
 		</record>	
 		<record id="cwa_statiegeld_inname_175" model="product.template">
-            <field name="name">Statiegeld Inname 1.75</field>
+            <field name="name">STATIEGELD INNAME 1.75</field>
             <field name="list_price">-1.75</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
         </record>
 			
 		<record id="cwa_statiegeld_5" model="product.template">
-			<field name="name">Statiegeld 5.00</field>
+			<field name="name">STATIEGELD 5.00</field>
 			<field name="list_price">5.00</field>
 			<field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>
 		</record>
 		<record id="cwa_statiegeld_inname_5" model="product.template">
-            <field name="name">Statiegeld Inname 5.00</field>
+            <field name="name">STATIEGELD INNAME 5.00</field>
             <field name="list_price">-5.00</field>
             <field name="taxes_id" eval="[(5)]"/>
             <field name="supplier_taxes_id" eval="[(5)]"/>

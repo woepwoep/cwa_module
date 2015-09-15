@@ -46,7 +46,7 @@ class cwa_import_module(models.Model):
         product_template_obj = self.pool.get('product.template')
         irmodel_data_obj = self.pool.get('ir.model.data')
         products = []
-        product_tags = ['id', 'name', 'list_price', 'ean13', 'categ_id/id', 
+        product_tags = ['id', 'name', 'list_price', 'standard_price', 'ean13', 'categ_id/id', 
                         'taxes_id', 'supplier_taxes_id', 'available_in_pos', 
                         'uom_id/id', 'uom_po_id/id', 'pos_categ_id/id', 'cwa_product', 
                         'use_deposit', 'select_deposit/id', 'to_weight', 'type']
@@ -59,18 +59,37 @@ class cwa_import_module(models.Model):
                     product_tags.append(item.tag)
                 if type(item.text) is types.NoneType:
                     temp_data[item.tag] = 0
+                # enter prices as floats
+                elif item.tag == 'consumentenprijs' or item.tag == 'inkoopprijs': 
+                    temp_data[item.tag] = "{0:.2f}".format(float(item.text))
+                # enter selection
+                elif item.tag in ['proefdiervrij', 'vegetarisch', 'veganistisch', 'rauwe melk']:  
+                    if item.text in ['0', '1', '2']:
+                        temp_data[item.tag] = item.text
+                    else:
+                        temp_data[item.tag] = '0'
+                # enter boolean
+                elif item.tag in ['weegschaalartikel', 'pluartikel', 'wichtartikel']:   
+                    if item.text == '1':
+                        temp_data[item.tag] = 'true'
+                    else:
+                        temp_data[item.tag] = 'false'
                 else:
                     temp_data[item.tag] = item.text.encode('utf-8').upper()
                 
+            if temp_data['leveranciernummer'] != '1042':
+                continue
+
             temp_data['id'] = self.set_external_id(temp_data)
             temp_data['ean13'] = 0 if temp_data['eancode'] == 0 else self.set_ean_code(temp_data['eancode'])
             temp_data['name'] = temp_data['omschrijving']
-            temp_data['list_price'] = float(temp_data['consumentenprijs'])
+            temp_data['list_price'] = "{0:.2f}".format(float(temp_data['consumentenprijs']))
+            temp_data['standard_price'] = "{0:.2f}".format(float(temp_data['inkoopprijs']))
             temp_data['categ_id/id'] = "cwa_cbl_cat.%s" % temp_data['cblcode']
             temp_data['taxes_id'] = 'Verkopen/omzet hoog' if temp_data['btw'] == '21' else 'Verkopen/omzet laag'
             temp_data['supplier_taxes_id'] = 'BTW te vorderen hoog (inkopen)' if temp_data['btw'] == '21' else 'BTW te vorderen laag (inkopen)'
             temp_data['available_in_pos'] = 'false'
-            temp_data['pos_categ_id/id'] = 'cwa_pos_categ_%s' % (temp_data['cblcode'][:5])
+            temp_data['pos_categ_id/id'] = 'cwa_module.cwa_pos_categ_%s' % (temp_data['cblcode'][:5])
             temp_data['cwa_product'] = 'true'
             temp_data['to_weight'] = 'true' if temp_data['weegschaalartikel'] == '1' else 'false'
             temp_data['type'] = 'consu'
@@ -110,7 +129,7 @@ class cwa_import_module(models.Model):
     def parse_xml_supplier_info(self, f):
         root = etree.parse(f).getroot()
         supplier_info = []
-        supplier_info_tags = ['id', 'name/id', 'product_tmpl_id/id', 'pos_categ_id']
+        supplier_info_tags = ['id', 'name/id', 'product_tmpl_id/id', 'pos_categ_id', 'min_qty', 'product_code']
         
         for product in root.iter('product'):
             temp_data = {}
@@ -119,13 +138,33 @@ class cwa_import_module(models.Model):
                     supplier_info_tags.append(item.tag)
                 if type(item.text) is types.NoneType:
                     temp_data[item.tag] = 0
+                # enter prices as floats
+                elif item.tag == 'consumentenprijs' or item.tag == 'inkoopprijs': 
+                    temp_data[item.tag] = "{0:.2f}".format(float(item.text))
+                # enter selection
+                elif item.tag in ['proefdiervrij', 'vegetarisch', 'veganistisch', 'rauwe melk']:  
+                    if item.text in ['0', '1', '2']:
+                        temp_data[item.tag] = item.text.encode('utf-8')
+                    else:
+                        temp_data[item.tag] = '0'
+                # enter boolean
+                elif item.tag in ['weegschaalartikel', 'pluartikel', 'wichtartikel']:   
+                    if item.text == '1':
+                        temp_data[item.tag] = 'true'
+                    else:
+                        temp_data[item.tag] = 'false'
                 else:
                     temp_data[item.tag] = item.text.encode('utf-8').upper()
 
+            if temp_data['leveranciernummer'] != '1042':
+                continue
+
             temp_data['id'] = 'supplier_info_%s_%s' % (temp_data['leveranciernummer'], temp_data['bestelnummer'])
-            temp_data['name/id'] = 'supplier_code_%s' % (temp_data['leveranciernummer'])
+            temp_data['name/id'] = 'cwa_module.supplier_code_%s' % (temp_data['leveranciernummer'])
             temp_data['product_tmpl_id/id'] = self.set_external_id(temp_data)
-            temp_data['pos_categ_id'] = "cwa_pos_categ_%s" % temp_data['cblcode'][:5]
+            temp_data['pos_categ_id'] = "cwa_module.cwa_pos_categ_%s" % temp_data['cblcode'][:5]
+            temp_data['min_qty'] = "{0:.2f}".format(float(temp_data['sve']))
+            temp_data['product_code'] = temp_data['bestelnummer']
 
             temp_list = []
             for tag in supplier_info_tags:
@@ -134,6 +173,7 @@ class cwa_import_module(models.Model):
                 except KeyError:
                     temp_list.append(0)
             supplier_info.append(temp_list)
+        supplier_info = supplier_info[::-1] #Reverse order
         return supplier_info, supplier_info_tags
                 
                 
@@ -160,6 +200,7 @@ class cwa_import_module(models.Model):
                 new_cr.close()
                 if len(x['messages']) > 0:
                     _logger.warning("attempt..%s" % attempt)
+                    _logger.error(x)
                     continue
                 else:
                     _logger.warning("succes..%s" % attempt)
@@ -216,85 +257,11 @@ class cwa_import_module(models.Model):
 class extended_supplierinfo(models.Model):
     _inherit = 'product.supplierinfo'
     
-    eancode =           fields.Char('eancode', help="eancode")
-    omschrijving =      fields.Char('omschrijving', help="omschrijving")
-    weegschaalartikel = fields.Char('weegschaalartikel', help="1 = waar/0 = niet waar")
-    wichtartikel =      fields.Char('wichtartikel', help="1 = waar/0 = niet waar")
-    pluartikel =        fields.Char('pluartikel', help="1 = waar/0 = niet waar")
-    inhoud =            fields.Char('inhoud', help="Inhoud van de verpakking.")
-    eenheid =           fields.Char('eenheid', help="Aanduiding van de inhoud.")
-    verpakkingce =      fields.Char('verpakkingce', help="Verpakking van consumenten eenheid.")
-    merk =              fields.Char('merk', help="merk")
-    kwaliteit =         fields.Char('kwaliteit', help="Kwaliteitsaanduiding")
-    btw =               fields.Char('btw', help="BTW percentage 0, 6 of 21")
-    cblcode =           fields.Char('cblcode', help="cblcode")
-    leveranciernummer = fields.Char('leveranciernummer', help="Identificerend nummer van een leverancier.")
-    bestelnummer =      fields.Char('bestelnummer', help="Bestelnummer van artikel bij leverancier.")
-    proefdiervrij =     fields.Char('proefdiervrij', help="0=onbekend / 1=ja / 2=nee")
-    vegetarisch =       fields.Char('vegetarisch', help="0=onbekend / 1=ja / 2=nee")
-    veganistisch =      fields.Char('veganistisch', help="0=onbekend / 1=ja / 2=nee")
-    rauwemelk =         fields.Char('rauwemelk', help="0=onbekend / 1=ja / 2=nee")
-    inkoopprijs =       fields.Char('inkoopprijs', help="inkoopprijs")
-    consumentenprijs =  fields.Char('consumentenprijs', help="consumentenprijs")
-    ingangsdatum =      fields.Char('ingangsdatum', help="Datum in de vorm eejj-mm-dd")
-    herkomst =          fields.Char('herkomst', help="Land van herkomst in vorm ISO 3166 code.")
-    ingredienten =      fields.Text('ingredienten', help="Beschrijving van de ingredienten.")
-    statiegeld =        fields.Char('statiegeld', help="bedrag")
-    kassaomschrijving = fields.Char('kassaomschrijving', help="Korte omschrijving van het product tbv de kassa")
-    plucode =           fields.Float('plucode', help="4cijferige plucode.", digits=(4,0 ))
-    sve =               fields.Char('sve', help="Standaard verpakkings eenheid bij leverancier.")
-    status =            fields.Char('status', help="Mogelijke waarden: Actief/Non Actief/Gesaneerd")
-    keurmerkbio =       fields.Char('keurmerkbio', help="keurmerkbio")
-    keurmerkoverig =    fields.Char('keurmerkoverig', help="keurmerkoverig")
-    herkomstregio =     fields.Char('herkomstregio', help="herkokmstregio")
-    aantaldagenhoudbaar=fields.Char('aantaldagenhoudbaar', help="aantaldagenhoudbaar")
-    bewaartemperatuur = fields.Char('bewaartemperatuur', help="bewaartemperatuur")
-    gebruikstips =      fields.Char('gebruikstips', help="gebruikstips")
-    lengte =            fields.Char('lengte', help="lengte")
-    breedte =           fields.Char('breedte', help="breedte")
-    hoogte =            fields.Char('hoogte', help="hoogte")
-    code =              fields.Char('code', help="code")
-    d204 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d204', help="Cacao", readonly=True)
-    d209 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d209', help="Glutamaat", readonly=True)
-    d210 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d210', help="Gluten", readonly=True)
-    d212 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d212', help="Ei", readonly=True)
-    d213 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d213', help="Kip", readonly=True)
-    d214 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d214', help="Melk", readonly=True)
-    d234 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d234', help="Koriander", readonly=True)
-    d215 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d215', help="Lactose", readonly=True)
-    d239 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d239', help="Lupine", readonly=True)
-    d216 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d216', help="Mais", readonly=True)
-    d217 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d217', help="Noten", readonly=True)
-    d217b =             fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d217b', help="Notenolie", readonly=True)
-    d220 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d220', help="Peulvruchten", readonly=True)
-    d221 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d221', help="Pinda", readonly=True)
-    d221b =             fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d221b', help="Pindaolie", readonly=True)
-    d222 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d222', help="Rogge", readonly=True)
-    d223 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d223', help="Rundvlees", readonly=True)
-    d236 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d236', help="Schaaldieren", readonly=True)
-    d235 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d235', help="Selderij", readonly=True)
-    d238 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d238', help="Sesam", readonly=True)
-    d238b =             fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d238b', help="Sesamolie", readonly=True)
-    d225 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d225', help="Soja", readonly=True)
-    d226 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d226', help="Soja-olie", readonly=True)
-    d228 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d228', help="Sulfiet", readonly=True)
-    d230 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d230', help="Tarwe", readonly=True)
-    d232 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d232', help="Varkensvlees", readonly=True)
-    d237 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d237', help="Vis", readonly=True)
-    d240 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d240', help="Wortel", readonly=True)
-    d241 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d241', help="Mosterd", readonly=True)
-    d242 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d242', help="Weekdieren", readonly=True)
-    pos_categ_id =      fields.Char('NOT A REFERENCE', help="Not a reference field, just a char field.")
-    
-    
-class extended_template(models.Model):
-    _inherit = 'product.template'
-
     eancode =           fields.Char('Eancode', help="eancode")
     omschrijving =      fields.Char('Omschrijving', help="omschrijving")
-    weegschaalartikel = fields.Char('Weegschaalartikel', help="1 = waar/0 = niet waar")
-    wichtartikel =      fields.Char('Wichtartikel', help="1 = waar/0 = niet waar")
-    pluartikel =        fields.Char('Pluartikel', help="1 = waar/0 = niet waar")
+    weegschaalartikel = fields.Boolean('Weegschaalartikel')
+    wichtartikel =      fields.Boolean('Wichtartikel')
+    pluartikel =        fields.Boolean('Pluartikel')
     inhoud =            fields.Char('Inhoud', help="Inhoud van de verpakking.")
     eenheid =           fields.Char('Eenheid', help="Aanduiding van de inhoud.")
     verpakkingce =      fields.Char('Verpakkingce', help="Verpakking van consumenten eenheid.")
@@ -304,12 +271,86 @@ class extended_template(models.Model):
     cblcode =           fields.Char('Cblcode', help="cblcode")
     leveranciernummer = fields.Char('Leveranciernummer', help="Identificerend nummer van een leverancier.")
     bestelnummer =      fields.Char('Bestelnummer', help="Bestelnummer van artikel bij leverancier.")
-    proefdiervrij =     fields.Char('Proefdiervrij', help="0=onbekend / 1=ja / 2=nee")
-    vegetarisch =       fields.Char('Vegetarisch', help="0=onbekend / 1=ja / 2=nee")
-    veganistisch =      fields.Char('Veganistisch', help="0=onbekend / 1=ja / 2=nee")
-    rauwemelk =         fields.Char('Rauwemelk', help="0=onbekend / 1=ja / 2=nee")
-    inkoopprijs =       fields.Char('Inkoopprijs', help="inkoopprijs")
-    consumentenprijs =  fields.Char('Consumentenprijs', help="consumentenprijs")
+    proefdiervrij =     fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'proefdiervrij')
+    vegetarisch   =     fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'vegetarisch')
+    veganistisch =      fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'veganistisch')
+    rauwemelk =         fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'rauwemelk')
+    inkoopprijs =       fields.Float('Kostprijs', help="inkoopprijs")
+    consumentenprijs =  fields.Float('Adviesprijs', help="consumentenprijs")
+    ingangsdatum =      fields.Char('Ingangsdatum', help="Datum in de vorm eejj-mm-dd")
+    herkomst =          fields.Char('Herkomst', help="Land van herkomst in vorm ISO 3166 code.")
+    ingredienten =      fields.Text('Ingredienten', help="Beschrijving van de ingredienten.")
+    statiegeld =        fields.Char('Statiegeld', help="bedrag")
+    kassaomschrijving = fields.Char('Kassaomschrijving', help="Korte omschrijving van het product tbv de kassa")
+    plucode =           fields.Float('Plucode', help="4cijferige plucode.", digits=(4,0 ))
+    sve =               fields.Char('Sve', help="Standaard verpakkings eenheid bij leverancier.")
+    status =            fields.Char('Status', help="Mogelijke waarden: Actief/Non Actief/Gesaneerd")
+    keurmerkbio =       fields.Char('Keurmerkbio', help="keurmerkbio")
+    keurmerkoverig =    fields.Char('Keurmerkoverig', help="keurmerkoverig")
+    herkomstregio =     fields.Char('Herkomstregio', help="herkokmstregio")
+    aantaldagenhoudbaar=fields.Char('Aantaldagenhoudbaar', help="aantaldagenhoudbaar")
+    bewaartemperatuur = fields.Char('Bewaartemperatuur', help="bewaartemperatuur")
+    gebruikstips =      fields.Char('Gebruikstips', help="gebruikstips")
+    lengte =            fields.Char('Lengte', help="lengte")
+    breedte =           fields.Char('Breedte', help="breedte")
+    hoogte =            fields.Char('Hoogte', help="hoogte")
+    code =              fields.Char('Code', help="code")
+    d204 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d204', help="Cacao", readonly=True)
+    d209 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d209', help="Glutamaat", readonly=True)
+    d210 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d210', help="Gluten", readonly=True)
+    d212 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d212', help="Ei", readonly=True)
+    d213 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d213', help="Kip", readonly=True)
+    d214 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d214', help="Melk", readonly=True)
+    d234 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d234', help="Koriander", readonly=True)
+    d215 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d215', help="Lactose", readonly=True)
+    d239 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d239', help="Lupine", readonly=True)
+    d216 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d216', help="Mais", readonly=True)
+    d217 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d217', help="Noten", readonly=True)
+    d217b =             fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d217b', help="Notenolie", readonly=True)
+    d220 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d220', help="Peulvruchten", readonly=True)
+    d221 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d221', help="Pinda", readonly=True)
+    d221b =             fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d221b', help="Pindaolie", readonly=True)
+    d222 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d222', help="Rogge", readonly=True)
+    d223 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d223', help="Rundvlees", readonly=True)
+    d236 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d236', help="Schaaldieren", readonly=True)
+    d235 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d235', help="Selderij", readonly=True)
+    d238 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d238', help="Sesam", readonly=True)
+    d238b =             fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d238b', help="Sesamolie", readonly=True)
+    d225 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d225', help="Soja", readonly=True)
+    d226 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d226', help="Soja-olie", readonly=True)
+    d228 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d228', help="Sulfiet", readonly=True)
+    d230 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d230', help="Tarwe", readonly=True)
+    d232 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d232', help="Varkensvlees", readonly=True)
+    d237 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d237', help="Vis", readonly=True)
+    d240 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d240', help="Wortel", readonly=True)
+    d241 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d241', help="Mosterd", readonly=True)
+    d242 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d242', help="Weekdieren", readonly=True)
+    pos_categ_id =      fields.Char('NOT A REFERENCE', help="Not a reference field, just a char field.")
+    
+    
+class extended_template(models.Model):
+    _inherit = 'product.template'
+
+    eancode =           fields.Char('Eancode', help="eancode")
+    omschrijving =      fields.Char('Omschrijving', help="omschrijving")
+    weegschaalartikel = fields.Boolean('Weegschaalartikel')
+    wichtartikel =      fields.Boolean('Wichtartikel')
+    pluartikel =        fields.Boolean('Pluartikel')
+    inhoud =            fields.Char('Inhoud', help="Inhoud van de verpakking.")
+    eenheid =           fields.Char('Eenheid', help="Aanduiding van de inhoud.")
+    verpakkingce =      fields.Char('Verpakkingce', help="Verpakking van consumenten eenheid.")
+    merk =              fields.Char('Merk', help="merk")
+    kwaliteit =         fields.Char('Kwaliteit', help="Kwaliteitsaanduiding")
+    btw =               fields.Char('Btw', help="BTW percentage 0, 6 of 21")
+    cblcode =           fields.Char('Cblcode', help="cblcode")
+    leveranciernummer = fields.Char('Leveranciernummer', help="Identificerend nummer van een leverancier.")
+    bestelnummer =      fields.Char('Bestelnummer', help="Bestelnummer van artikel bij leverancier.")
+    proefdiervrij =     fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'proefdiervrij')
+    vegetarisch   =     fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'vegetarisch')
+    veganistisch =      fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'veganistisch')
+    rauwemelk =         fields.Selection([('0', 'ONBEKEND'), ('1', 'JA'), ('2', 'NEE')], 'rauwemelk')
+    inkoopprijs =       fields.Float('Kostprijs', help="inkoopprijs")
+    consumentenprijs =  fields.Float('Verkoopprijs', help="consumentenprijs")
     ingangsdatum =      fields.Char('Ingangsdatum', help="Datum in de vorm eejj-mm-dd")
     herkomst =          fields.Char('Herkomst', help="Land van herkomst in vorm ISO 3166 code.")
     ingredienten =      fields.Text('Ingredienten', help="Beschrijving van de ingredienten.")
@@ -328,36 +369,36 @@ class extended_template(models.Model):
     breedte =           fields.Char('Breedte', help="breedte")
     hoogte =            fields.Char('Hoogte', help="hoogte")
     code =              fields.Char('Code', help="code")
-    d204 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d204', help="Cacao", default="0")
-    d209 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d209', help="Glutamaat", default="0")
-    d210 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d210', help="Gluten", default="0")
-    d212 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d212', help="Ei", default="0")
-    d213 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d213', help="Kip", default="0")
-    d214 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d214', help="Melk", default="0")
-    d234 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d234', help="Koriander", default="0")
-    d215 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d215', help="Lactose", default="0")
-    d239 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d239', help="Lupine", default="0")
-    d216 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d216', help="Mais", default="0")
-    d217 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d217', help="Noten", default="0")
-    d217b =             fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d217b', help="Notenolie", default="0")
-    d220 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d220', help="Peulvruchten", default="0")
-    d221 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d221', help="Pinda", default="0")
-    d221b =             fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d221b', help="Pindaolie", default="0")
-    d222 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d222', help="Rogge", default="0")
-    d223 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d223', help="Rundvlees", default="0")
-    d236 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d236', help="Schaaldieren", default="0")
-    d235 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d235', help="Selderij", default="0")
-    d238 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d238', help="Sesam", default="0")
-    d238b =             fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d238b', help="Sesamolie", default="0")
-    d225 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d225', help="Soja", default="0")
-    d226 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d226', help="Soja-olie", default="0")
-    d228 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d228', help="Sulfiet", default="0")
-    d230 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d230', help="Tarwe", default="0")
-    d232 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d232', help="Varkensvlees", default="0")
-    d237 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d237', help="Vis", default="0")
-    d240 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d240', help="Wortel", default="0")
-    d241 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d241', help="Mosterd", default="0")
-    d242 =              fields.Selection([('0','onbekend'),('1','aanwezig'),('2','niet aanwezig'),('3','mogelijk aanwezig')],'d242', help="Weekdieren", default="0")
+    d204 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d204', help="Cacao", readonly=True)
+    d209 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d209', help="Glutamaat", readonly=True)
+    d210 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d210', help="Gluten", readonly=True)
+    d212 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d212', help="Ei", readonly=True)
+    d213 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d213', help="Kip", readonly=True)
+    d214 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d214', help="Melk", readonly=True)
+    d234 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d234', help="Koriander", readonly=True)
+    d215 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d215', help="Lactose", readonly=True)
+    d239 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d239', help="Lupine", readonly=True)
+    d216 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d216', help="Mais", readonly=True)
+    d217 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d217', help="Noten", readonly=True)
+    d217b =             fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d217b', help="Notenolie", readonly=True)
+    d220 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d220', help="Peulvruchten", readonly=True)
+    d221 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d221', help="Pinda", readonly=True)
+    d221b =             fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d221b', help="Pindaolie", readonly=True)
+    d222 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d222', help="Rogge", readonly=True)
+    d223 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d223', help="Rundvlees", readonly=True)
+    d236 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d236', help="Schaaldieren", readonly=True)
+    d235 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d235', help="Selderij", readonly=True)
+    d238 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d238', help="Sesam", readonly=True)
+    d238b =             fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d238b', help="Sesamolie", readonly=True)
+    d225 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d225', help="Soja", readonly=True)
+    d226 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d226', help="Soja-olie", readonly=True)
+    d228 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d228', help="Sulfiet", readonly=True)
+    d230 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d230', help="Tarwe", readonly=True)
+    d232 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d232', help="Varkensvlees", readonly=True)
+    d237 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d237', help="Vis", readonly=True)
+    d240 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d240', help="Wortel", readonly=True)
+    d241 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d241', help="Mosterd", readonly=True)
+    d242 =              fields.Selection([('0','ONBEKEND'),('1','AANWEZIG'),('2','NIET AANWEZIG'),('3','MOGELIJK AANWEZIG')],'d242', help="Weekdieren", readonly=True)
     cwa_product =       fields.Boolean('Is CWA product?', default=False, readonly=True)
     
     @api.one
@@ -387,28 +428,28 @@ class extended_template(models.Model):
 #                           These two functions are copied from the product model                           #
 #                                                                                                           #
 #############################################################################################################
-def sanitize_ean13(ean13):
-    """Creates and returns a valid ean13 from an invalid one"""
-    ean13 = re.sub("[A-Za-z]","0",ean13);
-    ean13 = re.sub("[^0-9]","",ean13);
-    ean13 = ean13[:13]
-    if len(ean13) < 13:
-        ean13 = ean13 + '0' * (13-len(ean13))
-    return ean13[:-1] + str(ean_checksum(ean13))
-
-def ean_checksum(eancode):
-    """returns the checksum of an ean string of length 13, returns -1 if the string has the wrong length"""
-    if len(eancode) != 13:
-        return -1
-    oddsum=0
-    evensum=0
-    total=0
-    eanvalue=eancode
-    reversevalue = eanvalue[::-1]
-    finalean=reversevalue[1:]
+def sanitize_ean13(ean13):                                                                                  
+    """Creates and returns a valid ean13 from an invalid one"""                                                          
+    ean13 = re.sub("[A-Za-z]","0",ean13);                                                                   
+    ean13 = re.sub("[^0-9]","",ean13);                                                                      
+    ean13 = ean13[:13]                                                                                      
+    if len(ean13) < 13:                                                                                     
+        ean13 = ean13 + '0' * (13-len(ean13))                                                                   
+    return ean13[:-1] + str(ean_checksum(ean13))                                                                
+                                                                                                                
+def ean_checksum(eancode):                                                                                  
+    """returns the checksum of an ean string of length 13, returns -1 if the string has the wrong length""" 
+    if len(eancode) != 13:                                                                                  
+        return -1                                                                                           
+    oddsum=0                                                                                                
+    evensum=0                                                                                               
+    total=0                                                                                                 
+    eanvalue=eancode                                                                                        
+    reversevalue = eanvalue[::-1]                                                                               
+    finalean=reversevalue[1:]                                                                               
     
-    for i in range(len(finalean)):
-        if i % 2 == 0:
+    for i in range(len(finalean)):                                                                          
+        if i % 2 == 0:  
             oddsum += int(finalean[i])
         else:
             evensum += int(finalean[i])

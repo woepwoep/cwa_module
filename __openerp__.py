@@ -1,7 +1,7 @@
 {
     'name': 'cwa module',
-    'description': 'cwa module voor producten.',
-    'author': 'Open2bizz',
+    'description': 'cwa module voor producten',
+    'author': 'Open2bizz versie 14-09-2015',
     'application': True,
     'depends': ['sale', 'l10n_nl', 'point_of_sale', 'pos_deposit'],
     'data': ['view.xml',

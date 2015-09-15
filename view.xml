@@ -178,11 +178,9 @@
 	    <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
 	    <field name="arch" type="xml">
 	        <xpath expr="//tree[@string='Supplier Information']/field[@name='delay']" position='replace'>
-	            <field name="verpakkingce"/>
-	            <field name="sve"/>
 	        </xpath>
-	        <xpath expr="//tree[@string='Supplier Information']/field[@name='min_qty']" position='replace'>
-	            <field name="bestelnummer"/>
+	        <xpath expr="//tree[@string='Supplier Information']/field[@name='min_qty']" position='after'>
+	            <field name="product_code"/>
 	            <field name="inkoopprijs"/>
 	            <field name="consumentenprijs"/>
 	        </xpath>

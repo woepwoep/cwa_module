@@ -33,7 +33,7 @@
             <sheet>		
                 <div class="oe_left" style="width: 500px;">
 					<field name="image_medium" widget="image" class="oe_avatar oe_left" modifiers="{}"/>
-					<div class="oe_title" style="width: 390px;">
+					<div class="oe_title" style="width: 780px;">
 						<label class="oe_edit_only" for="name" string="Product Name"/>
 						<h1>
 							<field name="name" class="oe_inline" modifiers="{'required': true}"/>
