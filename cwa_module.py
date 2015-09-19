@@ -123,11 +123,13 @@ class cwa_import_module(models.Model):
             products.append(temp_list)
         return products, product_tags
     
-    def parse_xml_supplier_info(self, f):
+    def parse_xml_supplier_info(self, cr, uid, f):
         root = etree.parse(f).getroot()
         supplier_info = []
-        supplier_info_tags = ['id', 'name/id', 'product_tmpl_id/id', 'pos_categ_id', 'min_qty', 'product_code']
-        
+        supplier_info_tags = ['id', 'name/id', 'product_tmpl_id/id', 'pos_categ_id', 'min_qty', 'product_code', 'sequence']
+        supplier_sequences = {}
+        ir_model_obj = self.pool.get('ir.model.data')
+        prod_suppl_obj = self.pool.get('product.supplierinfo')
         for product in root.iter('product'):
             temp_data = {}
             for item in product:
@@ -159,6 +161,21 @@ class cwa_import_module(models.Model):
             temp_data['pos_categ_id'] = "cwa_module.cwa_pos_categ_%s" % temp_data['cblcode'][:5]
             temp_data['min_qty'] = "{0:.2f}".format(float(temp_data['sve']))
             temp_data['product_code'] = temp_data['bestelnummer']
+            sup_info_id = ir_model_obj.search_read(cr, uid, [('name', '=', temp_data['id'])], ['res_id'])
+            existing_supplier_info = prod_suppl_obj.search_read(cr, uid, [('id', '=', sup_info_id[0]['res_id'])], ['sequence'])
+            existing_product = ir_model_obj.search(cr, uid, [('name', '=', temp_data['product_tmpl_id/id'])])
+            if len(existing_supplier_info) > 0:
+                temp_data['sequence'] = existing_supplier_info[0]['sequence']
+            elif len(existing_product) > 0:
+                temp_data['sequence'] = 10
+                supplier_sequences[temp_data['product_tmpl_id/id']] = 10
+            else:
+                try:
+                    supplier_sequences[temp_data['product_tmpl_id/id']] += 1
+                    temp_data['sequence'] = supplier_sequences[temp_data['product_tmpl_id/id']]
+                except KeyError:
+                    supplier_sequences[temp_data['product_tmpl_id/id']] = 1
+                    temp_data['sequence'] = 1
 
             temp_list = []
             for tag in supplier_info_tags:
@@ -167,7 +184,7 @@ class cwa_import_module(models.Model):
                 except KeyError:
                     temp_list.append(0)
             supplier_info.append(temp_list)
-        supplier_info = supplier_info[::-1] #Reverse order
+        
         return supplier_info, supplier_info_tags
                 
                 
@@ -232,7 +249,7 @@ class cwa_import_module(models.Model):
             _logger.warning("Parsing products")
             product_info = self.parse_xml_products(cr, uid, '/tmp/%s/%s'%(tmp, f))
             _logger.warning("Parsing supplier info")
-            supplier_info = self.parse_xml_supplier_info('/tmp/%s/%s'%(tmp, f))
+            supplier_info = self.parse_xml_supplier_info(cr, uid, '/tmp/%s/%s'%(tmp, f))
             _logger.warning("Loading products")
             self.load_records(cr, uid, product_info[1], product_info[0], 'product.template')
             _logger.warning("Loading supplierinfo")
@@ -250,6 +267,7 @@ class cwa_import_module(models.Model):
 
 class extended_supplierinfo(models.Model):
     _inherit = 'product.supplierinfo'
+#     _order = "sequence,id desc"
     
     eancode =           fields.Char('Eancode', help="eancode")
     omschrijving =      fields.Char('Omschrijving', help="omschrijving")

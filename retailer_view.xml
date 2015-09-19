@@ -65,7 +65,7 @@
 								<field name="plucode"/>
 								<field name="taxes_id" colspan="2" widget="many2many_tags"/>
 								<field name="lst_price"/>
-								<field name="inkoopprijs"/>
+								<field name="standard_price"/>
 								<field name="kwaliteit"/>
 								<field name="herkomst"/>
 							</group>
